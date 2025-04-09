@@ -69,15 +69,9 @@
     </body>
     <script type="speculationrules">
         {
-            "prefetch": [
-                {
-                    "urls": ["pages/home.html", "pages/pages.html", "pages/contacts.html"]
-                }
-            ],
             "prerender": [
                 {
-                    "where": {"href_matches": "/*"},
-                    "eagerness": "immediate"
+                    "urls": ["/pages/home.html", "/pages/pages.html", "/pages/contacts.html"]
                 }
             ]
         }
