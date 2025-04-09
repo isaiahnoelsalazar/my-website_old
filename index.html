@@ -7,9 +7,15 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>saiaaaaaaa</title>
-        <link rel="prerender" href="pages/home.css" as="document">
-        <link rel="prerender" href="pages/pages.css" as="document">
-        <link rel="prerender" href="pages/contacts.css" as="document">
+        <script type="speculationrules">
+            {
+                "prefetch": [
+                    {
+                        "urls": ["pages/home.html", "pages/pages.html", "pages/contacts.html"]
+                    }
+                ]
+            }
+        </script>
         <link rel="stylesheet" href="resources/colors.css">
         <link rel="stylesheet" href="resources/fonts.css">
         <style>
