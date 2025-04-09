@@ -7,12 +7,6 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>saiaaaaaaa</title>
-        <link rel="prefetch" href="pages/home.html">
-        <link rel="prefetch" href="pages/pages.html">
-        <link rel="prefetch" href="pages/contacts.html">
-        <link rel="prerender" href="pages/home.html">
-        <link rel="prerender" href="pages/pages.html">
-        <link rel="prerender" href="pages/contacts.html">
         <link rel="stylesheet" href="resources/colors.css">
         <link rel="stylesheet" href="resources/fonts.css">
         <style>
@@ -73,6 +67,15 @@
             <embed src="pages/home.html" id="content" style="width: 100%; height: calc(100vh - 144px); border: none;"></embed>
         </div>
     </body>
+    <script type="speculationrules">
+        {
+            "prerender": [
+                {
+                    "urls": ["pages/home.html", "pages/pages.html", "pages/contacts.html"]
+                }
+            ]
+        }
+    </script>
     <script>
         const pages = ["pages/home.html", "pages/pages.html", "pages/contacts.html"];
         const tabs = document.querySelectorAll(".tab");
