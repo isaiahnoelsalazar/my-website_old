@@ -73,6 +73,12 @@
                 {
                     "urls": ["pages/home.html", "pages/pages.html", "pages/contacts.html"]
                 }
+            ],
+            "prerender": [
+                {
+                    "where": {"href_matches": "/*"},
+                    "eagerness": "immediate"
+                }
             ]
         }
     </script>
