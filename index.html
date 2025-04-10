@@ -11,13 +11,30 @@
             {
                 "prerender": [
                     {
-                        "urls": ["pages/home.html", "pages/pages.html", "pages/contacts.html"]
+                        "urls": [
+                            "https://saiaaaaaaa.github.io/bad-phone-number-inputs/",
+                            "https://saiaaaaaaa.github.io/basabasa-download/",
+                            "https://saiaaaaaaa.github.io/black/",
+                            "https://saiaaaaaaa.github.io/codenotes/",
+                            "https://saiaaaaaaa.github.io/electronic-gadget-store/",
+                            "https://saiaaaaaaa.github.io/live-html/",
+                            "https://saiaaaaaaa.github.io/multiplication-table/",
+                            "https://openweb.fwh.is/mysql-playground/",
+                            "https://saiaaaaaaa.github.io/personal-webpage/",
+                            "https://saiaaaaaaa.github.io/simple-web-calculator/",
+                            "https://saiaaaaaaa.github.io/typey/",
+                            "https://openweb.fwh.is/openweb_webbook/",
+                            "https://saiaaaaaaa.github.io/website-observation-1/",
+                            "https://saiaaaaaaa.github.io/women-with-baskets/"
+                        ]
                     }
                 ]
             }
         </script>
         <link rel="stylesheet" href="resources/colors.css">
         <link rel="stylesheet" href="resources/fonts.css">
+        <link rel="stylesheet" href="resources/home.css">
+        <link rel="stylesheet" href="resources/pages.css">
         <style>
             body {
                 background-color: var(--white);
@@ -29,11 +46,11 @@
                 background-color: var(--primary-color);
                 color: white;
                 display: flex;
-                height: 80px;
                 justify-content: center;
             }
             #header > h1 {
                 margin: 0;
+                padding: 24px;
             }
             #navbar {
                 background-color: var(--black);
@@ -49,9 +66,8 @@
                 color: var(--white);
                 cursor: pointer;
                 display: flex;
-                height: 64px;
                 justify-content: center;
-                padding: 0 32px;
+                padding: 24px 32px;
             }
             .tab:hover {
                 background-color: var(--white);
@@ -60,6 +76,16 @@
             .selected {
                 background-color: var(--white);
                 color: var(--black);
+            }
+            #main {
+                display: flex;
+                flex-direction: column;
+            }
+            .content {
+                display: none;
+            }
+            .content:first-child {
+                display: flex;
             }
         </style>
     </head>
@@ -72,19 +98,79 @@
             <p class="tab unselected">Pages</p>
             <p class="tab unselected">Contacts</p>
         </div>
-        <div>
-            <embed src="pages/home.html" id="content" style="width: 100%; height: calc(100vh - 144px); border: none;"></embed>
+        <div id="main">
+            <div class="content">
+                <h1 id="typewritecontainer">
+                    <a class="typewrite" data-period="2000" data-type='[ "Welcome to OpenWeb!", "Feel free to explore.", "Reminder to self:", "Keep up the great work!" ]'>
+                        <span class="wrap"></span>
+                    </a>
+                </h1>
+                <div class="background">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="content">
+                <div id="pagelist">
+                    <a href="https://saiaaaaaaa.github.io/bad-phone-number-inputs/">Bad Phone Number Inputs</a>
+                    <a href="https://saiaaaaaaa.github.io/basabasa-download/">Basabasa: Free Manga Reader App for Android</a>
+                    <a href="https://saiaaaaaaa.github.io/black/">Black</a>
+                    <a href="https://saiaaaaaaa.github.io/codenotes/">Code Notes</a>
+                    <a href="https://saiaaaaaaa.github.io/electronic-gadget-store/">Electronic Gadget Store</a>
+                    <a href="https://saiaaaaaaa.github.io/live-html/">Live HTML</a>
+                    <a href="https://saiaaaaaaa.github.io/multiplication-table/">Multiplication Table</a>
+                    <a href="https://openweb.fwh.is/mysql-playground/">MySQL Playground</a>
+                    <a href="https://saiaaaaaaa.github.io/personal-webpage/">Personal Webpage</a>
+                    <a href="https://saiaaaaaaa.github.io/simple-web-calculator/">Simple Web Calculator</a>
+                    <a href="https://saiaaaaaaa.github.io/typey/">Typey</a>
+                    <a href="https://openweb.fwh.is/openweb_webbook/">WebBook</a>
+                    <a href="https://saiaaaaaaa.github.io/website-observation-1/">Website Observation 1</a>
+                    <a href="https://saiaaaaaaa.github.io/women-with-baskets/">Women with Baskets</a>
+                </div>
+            </div>
+            <div class="content">
+                <h1>Contacts</h1>
+            </div>
         </div>
     </body>
     <script>
-        const pages = ["pages/home.html", "pages/pages.html", "pages/contacts.html"];
         const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".content");
         tabs.forEach(tab => {
             tab.addEventListener("click", () => {
                 tabs.forEach(t => t.classList.remove("selected"));
                 tab.classList.add("selected");
-                const content = document.getElementById("content").setAttribute("src", pages[Array.from(tabs).indexOf(tab)]);
+                contents.forEach((content, i) => {
+                    content.style.display = i === Array.from(tabs).indexOf(tab) ? "flex" : "none";
+                });
             });
         });
     </script>
+    <script src="resources/home.js"></script>
 </html>
