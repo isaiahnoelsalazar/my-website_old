@@ -44,8 +44,8 @@
                             "https://openweb.fwh.is/openweb_webbook/",
                             "https://saiaaaaaaa.github.io/website-observation-1/",
                             "https://saiaaaaaaa.github.io/women-with-baskets/",
-                            "blur-div.html",
-                            "gradient-div.html"
+                            "pages/blur-div.html",
+                            "pages/gradient-div.html"
                         ]
                     }
                 ]
@@ -75,7 +75,8 @@
             }
             #navbar {
                 background-color: var(--black);
-                display: flex;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
                 justify-content: center;
             }
             #navbar > p {
@@ -99,6 +100,14 @@
                 background-color: white;
                 color: var(--black);
             }
+            .home_tab {
+                background-color: var(--quinary-color);
+                color: white;
+            }
+            .unselected {
+                background-color: var(--black);
+                color: white;
+            }
             #main {
                 display: flex;
                 flex-direction: column;
@@ -116,14 +125,14 @@
             <h1>saiaaaaaaa</h1>
         </div>
         <div id="navbar">
-            <p class="tab selected">Home</p>
-            <p class="tab unselected">My Works</p>
-            <p class="tab unselected">Contacts</p>
+            <p class="home_tab tab selected">Home</p>
+            <p class="tab">My Works</p>
+            <p class="tab">Contacts</p>
         </div>
         <div id="main">
             <div class="content">
                 <h1 id="typewritecontainer">
-                    <a class="typewrite" data-period="2000" data-type='[ "Welcome to OpenWeb!", "Feel free to explore.", "Reminder to self:", "Keep up the great work!" ]'>
+                    <a class="typewrite" data-period="2000" data-type='[ "Welcome to my website!", "Feel free to explore.", "Reminder to self:", "Keep up the great work!" ]'>
                         <span class="wrap"></span>
                     </a>
                 </h1>
@@ -178,8 +187,9 @@
                 </div>
                 <h2>Test websites</h2>
                 <div id="pagelist">
-                    <a href="blur-div.html">Blur Div</a>
-                    <a href="gradient-div.html">Gradient Div</a>
+                    <a href="pages/blur-div.html">Blur Div</a>
+                    <a href="pages/gradient-div.html">Gradient Div</a>
+                    <a href="pages/xmlhttprequest-test.html">XMLHttpRequest Test</a>
                 </div>
             </div>
             <div class="content">
@@ -205,8 +215,16 @@
         const contents = document.querySelectorAll(".content");
         tabs.forEach(tab => {
             tab.addEventListener("click", () => {
-                tabs.forEach(t => t.classList.remove("selected"));
+                tabs.forEach(t => {
+                    t.classList.remove("selected");
+                    if (t.classList.contains("home_tab")) {
+                        t.classList.add("unselected");
+                    }
+                });
                 tab.classList.add("selected");
+                if (tab.classList.contains("home_tab")) {
+                    tab.classList.remove("unselected");
+                }
                 contents.forEach((content, i) => {
                     content.style.display = i === Array.from(tabs).indexOf(tab) ? "flex" : "none";
                 });
