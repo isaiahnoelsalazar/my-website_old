@@ -1,0 +1,23 @@
+#pagelist {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+#pagelist > a {
+    color: black;
+    font-size: larger;
+    padding: 8px;
+    text-decoration: none;
+    width: 600px;
+}
+#pagelist > a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 600px) {
+    #pagelist > a {
+        width: 100%;
+    }
+}
