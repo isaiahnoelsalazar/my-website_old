@@ -1,8 +1,8 @@
 @font-face {
     font-family: "Righteous";
-    src: url("Righteous.ttf");
+    src: url("../resources/Righteous.ttf");
 }
 @font-face {
     font-family: "FiraCode";
-    src: url("FiraCode.ttf");
+    src: url("../resources/FiraCode.ttf");
 }
