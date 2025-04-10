@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=7">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blur Div</title>
+        <style>
+            body {
+                align-items: center;
+                /*Photo by Susan Flores: https://www.pexels.com/photo/scenic-view-of-machu-picchu-terraces-and-mountains-29964217/*/
+                background-image: url("resources/sampleimage.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                margin: 0;
+                width: 100vw;
+            }
+            div {
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                border: solid #CCCCCC 1px;
+                height: 50vh;
+                width: 50vw;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+        </div>
+    </body>
+</html>

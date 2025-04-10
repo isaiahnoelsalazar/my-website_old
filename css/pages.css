@@ -1,3 +1,12 @@
+.content:nth-child(2) {
+    align-items: center;
+    flex-direction: column;
+    padding: 16px 0;
+}
+.content:nth-child(2) > h2 {
+    margin: 8px;
+    width: 720px;
+}
 #pagelist {
     align-items: center;
     cursor: pointer;
@@ -16,6 +25,11 @@
 }
 #pagelist > a:hover {
     text-decoration: underline;
+}
+@media (max-width: 720px) {
+    .content:nth-child(2) > h2 {
+        width: 100%;
+    }
 }
 @media (max-width: 600px) {
     #pagelist > a {
