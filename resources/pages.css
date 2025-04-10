@@ -3,11 +3,12 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    margin: 8px 0;
     width: 100%;
     -webkit-tap-highlight-color: transparent;
 }
 #pagelist > a {
-    color: black;
+    color: var(--black);
     font-size: larger;
     padding: 8px;
     text-decoration: none;

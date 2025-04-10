@@ -1,0 +1,61 @@
+.content:last-child {
+    justify-content: center;
+}
+#contactlist {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px 0;
+    width: 600px;
+    -webkit-tap-highlight-color: transparent;
+}
+#contactlist > div {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+}
+#contactlist > div > a {
+    align-items: center;
+    border-radius: 8px;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    width: 80px;
+}
+#contactlist > div > a > img {
+    height: 64px;
+    width: 64px;
+}
+#contactlist > div > a:last-child > img {
+    height: 80px;
+    width: 80px;
+}
+#contactlist > div > a:hover {
+    background-color: var(--gray);
+}
+#contactlist > a {
+    align-items: center;
+    background-color: var(--gray);
+    border-radius: 8px;
+    color: var(--black);
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    padding: 16px;
+    text-decoration: none;
+}
+#contactlist > a:hover {
+    text-decoration: underline;
+}
+#contactlist > a > p {
+    margin: 0;
+}
+@media (max-width: 600px) {
+    #contactlist {
+        width: 100%;
+    }
+}
