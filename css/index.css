@@ -15,7 +15,6 @@ body {
     padding: 24px;
 }
 #navbar {
-    background-color: var(--black);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
@@ -42,7 +41,7 @@ body {
     color: var(--black);
 }
 .home_tab {
-    background-color: var(--quinary-color);
+    background-color: transparent;
     color: white;
 }
 .unselected {
