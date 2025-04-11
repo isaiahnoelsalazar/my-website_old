@@ -1,7 +1,7 @@
 window.onload = function (){
     homeclick();
     let requestSession = new XMLHttpRequest();
-    requestSession.open("GET", "http://saiaaaaaa.pythonanywhere.com/", true);
+    requestSession.open("GET", "https://saiaaaaaa.pythonanywhere.com/", true);
     requestSession.onreadystatechange = function (){
         if (requestSession.status == 200 && requestSession.readyState == 4){
             let response = requestSession.responseText;
