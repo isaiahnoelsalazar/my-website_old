@@ -45,7 +45,11 @@
                             "https://saiaaaaaaa.github.io/website-observation-1/",
                             "https://saiaaaaaaa.github.io/women-with-baskets/",
                             "pages/blur-div.html",
-                            "pages/gradient-div.html"
+                            "pages/gradient-div.html",
+                            "pages/xmlhttprequest-test.html",
+                            "pages/webbook.html",
+                            "https://www.facebook.com/profile.php?id=100085006483044",
+                            "https://x.com/IsaiahNoelSal16"
                         ]
                     }
                 ]
@@ -53,72 +57,10 @@
         </script>
         <link rel="stylesheet" href="css/colors.css">
         <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/home.css">
         <link rel="stylesheet" href="css/pages.css">
         <link rel="stylesheet" href="css/contacts.css">
-        <style>
-            body {
-                background-color: white;
-                font-family: Righteous;
-                margin: 0;
-            }
-            #header {
-                align-items: center;
-                background-color: var(--primary-color);
-                color: white;
-                display: flex;
-                justify-content: center;
-            }
-            #header > h1 {
-                margin: 0;
-                padding: 24px;
-            }
-            #navbar {
-                background-color: var(--black);
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                justify-content: center;
-            }
-            #navbar > p {
-                margin: 0;
-                text-align: center;
-            }
-            .tab {
-                align-items: center;
-                background-color: var(--black);
-                color: white;
-                cursor: pointer;
-                display: flex;
-                justify-content: center;
-                padding: 16px 32px;
-            }
-            .tab:hover {
-                background-color: white;
-                color: var(--black);
-            }
-            .selected {
-                background-color: white;
-                color: var(--black);
-            }
-            .home_tab {
-                background-color: var(--quinary-color);
-                color: white;
-            }
-            .unselected {
-                background-color: var(--black);
-                color: white;
-            }
-            #main {
-                display: flex;
-                flex-direction: column;
-            }
-            .content {
-                display: none;
-            }
-            .content:first-child {
-                display: flex;
-            }
-        </style>
     </head>
     <body>
         <div id="header">
@@ -190,6 +132,7 @@
                     <a href="pages/blur-div.html">Blur Div</a>
                     <a href="pages/gradient-div.html">Gradient Div</a>
                     <a href="pages/xmlhttprequest-test.html">XMLHttpRequest Test</a>
+                    <a href="pages/webbook.html">WebBook</a>
                 </div>
             </div>
             <div class="content">
@@ -210,26 +153,6 @@
             </div>
         </div>
     </body>
-    <script>
-        const tabs = document.querySelectorAll(".tab");
-        const contents = document.querySelectorAll(".content");
-        tabs.forEach(tab => {
-            tab.addEventListener("click", () => {
-                tabs.forEach(t => {
-                    t.classList.remove("selected");
-                    if (t.classList.contains("home_tab")) {
-                        t.classList.add("unselected");
-                    }
-                });
-                tab.classList.add("selected");
-                if (tab.classList.contains("home_tab")) {
-                    tab.classList.remove("unselected");
-                }
-                contents.forEach((content, i) => {
-                    content.style.display = i === Array.from(tabs).indexOf(tab) ? "flex" : "none";
-                });
-            });
-        });
-    </script>
+    <script src="js/index.js"></script>
     <script src="js/home.js"></script>
 </html>

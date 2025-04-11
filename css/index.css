@@ -1,0 +1,61 @@
+body {
+    background-color: white;
+    font-family: Righteous;
+    margin: 0;
+}
+#header {
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+#header > h1 {
+    margin: 0;
+    padding: 24px;
+}
+#navbar {
+    background-color: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+}
+#navbar > p {
+    margin: 0;
+    text-align: center;
+}
+.tab {
+    align-items: center;
+    background-color: var(--black);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 16px 32px;
+}
+.tab:hover {
+    background-color: white;
+    color: var(--black);
+}
+.selected {
+    background-color: white;
+    color: var(--black);
+}
+.home_tab {
+    background-color: var(--quinary-color);
+    color: white;
+}
+.unselected {
+    background-color: var(--black);
+    color: white;
+}
+#main {
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    display: none;
+}
+.content:first-child {
+    display: flex;
+}
