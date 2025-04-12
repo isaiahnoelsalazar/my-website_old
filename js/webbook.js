@@ -129,6 +129,18 @@ function account_details(){
     //window.location.href = "https://openweb.fwh.is/ow_webbook/webbook_user-details.php";
 }
 function logout(){
+    let requestLogout = new XMLHttpRequest();
+    requestLogout.open("GET", "https://sasasaia.pythonanywhere.com/logout", true);
+    requestLogout.withCredentials = true;
+    requestLogout.onreadystatechange = function (){
+        if (requestLogout.status == 200 && requestLogout.readyState == 4){
+            let response = requestLogout.responseText;
+            if (response == "Success"){
+                window.location.href = "webbook_login.html";
+            }
+        }
+    }
+    requestLogout.send();
     //window.location.href = "https://openweb.fwh.is/ow_webbook/logout.php";
 }
 function menubtnclick(){
