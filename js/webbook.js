@@ -1,13 +1,17 @@
 window.onload = function (){
     homeclick();
     let requestSession = new XMLHttpRequest();
-    requestSession.open("GET", "https://saiaaaaaa.pythonanywhere.com/", true);
+    //const urlParams = new URLSearchParams(window.location.search);
+    //const uidParam = urlParams.get("uid");
+    requestSession.open("GET", "https://sasasaia.pythonanywhere.com/session", true);
     requestSession.onreadystatechange = function (){
+        let response = requestSession.responseText;
+        document.write(requestSession.status + " " + requestSession.readyState + " " + response);
         if (requestSession.status == 200 && requestSession.readyState == 4){
             let response = requestSession.responseText;
-            document.write(response);
-        } else {
-            document.write("Error connecting to server.");
+            if (response == "Not logged in."){
+                //window.location.href = "webbook_login.html";
+            }
         }
     }
     requestSession.send();
