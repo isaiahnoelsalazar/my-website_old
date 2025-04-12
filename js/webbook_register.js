@@ -6,6 +6,15 @@ function register(){
             let response = requestRegister.responseText;
             if (response == "Success"){
                 window.location.href = "webbook_login.html";
+            } else {
+                let main = document.getElementById("main");
+                let p = document.createElement("p");
+                p.id = "context-dialog";
+                p.innerHTML = response;
+                main.appendChild(p);
+                setTimeout(function (){
+                    main.removeChild(p);
+                }, 5000);
             }
         }
     }
