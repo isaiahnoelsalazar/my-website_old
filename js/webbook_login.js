@@ -5,7 +5,7 @@ function login(){
     requestLogin.onreadystatechange = function (){
         if (requestLogin.status == 200 && requestLogin.readyState == 4){
             let response = requestLogin.responseText;
-            if (response.split(":")[0] == "Success"){
+            if (response == "Success"){
                 window.location.href = "webbook.html";
             } else {
                 let main = document.getElementById("main");
