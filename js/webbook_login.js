@@ -5,11 +5,9 @@ function login(){
     requestLogin.onreadystatechange = function (){
         if (requestLogin.status == 200 && requestLogin.readyState == 4){
             let response = requestLogin.responseText;
-            try {
-                if (response.split(":")[0] == "Success"){
-                    window.location.href = "webbook.html";
-                }
-            } catch (excptn){
+            if (response.split(":")[0] == "Success"){
+                window.location.href = "webbook.html";
+            } else {
                 let main = document.getElementById("main");
                 let p = document.createElement("p");
                 p.id = "context-dialog";
