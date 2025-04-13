@@ -14,12 +14,6 @@ window.onload = function (){
     requestSession.send();
 };
 /*
-if (window.location == "https://openweb.fwh.is/webbook/home/"){
-    homeclick();
-}
-if (window.location == "https://openweb.fwh.is/ow_webbook/webbook.php/#community"){
-    communityclick();
-}
 function newpost(){
     window.location.href = "https://openweb.fwh.is/ow_webbook/webbook_new-post.php";
 }
@@ -126,7 +120,7 @@ function dropback(){
     }
 }
 function account_details(){
-    //window.location.href = "https://openweb.fwh.is/ow_webbook/webbook_user-details.php";
+    window.location.href = "webbook_account_details.html";
 }
 function logout(){
     let requestLogout = new XMLHttpRequest();
@@ -141,7 +135,6 @@ function logout(){
         }
     }
     requestLogout.send();
-    //window.location.href = "https://openweb.fwh.is/ow_webbook/logout.php";
 }
 function menubtnclick(){
     if (document.getElementById("navmenu").style.display == "flex"){

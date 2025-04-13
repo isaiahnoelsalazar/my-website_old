@@ -5,19 +5,19 @@ function login(){
     requestLogin.onreadystatechange = function (){
         if (requestLogin.status == 200 && requestLogin.readyState == 4){
             let response = requestLogin.responseText;
-            if (response == "Failed"){
+            try {
+                if (response.split(":")[0] == "Success"){
+                    window.location.href = "webbook.html";
+                }
+            } catch (excptn){
                 let main = document.getElementById("main");
                 let p = document.createElement("p");
                 p.id = "context-dialog";
-                p.innerHTML = "Login failed. Please check your username and password.";
+                p.innerHTML = response;
                 main.appendChild(p);
                 setTimeout(function (){
                     main.removeChild(p);
                 }, 5000);
-            } else {
-                if (response.split(":")[0] == "Success"){
-                    window.location.href = "webbook.html";
-                }
             }
         }
     }
