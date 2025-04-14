@@ -177,7 +177,7 @@ nav {
     padding: 8px;
 }
 .content-home-post {
-    background-color: var(--gray);
+    background-color: var(--light-gray);
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -237,7 +237,7 @@ nav {
 }
 .content-community-add {
     align-items: center;
-    background-color: var(--gray);
+    background-color: var(--light-gray);
     border-radius: 4px;
     display: flex;
     flex-direction: column;

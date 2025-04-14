@@ -12,7 +12,54 @@ window.onload = function (){
         }
     }
     requestSession.send();
+    let requestAllPosts = new XMLHttpRequest();
+    requestAllPosts.open("GET", "https://sasasaia.pythonanywhere.com/get-posts", true);
+    requestAllPosts.withCredentials = true;
+    requestAllPosts.onreadystatechange = function (){
+        if (requestAllPosts.status == 200 && requestAllPosts.readyState == 4){
+            let response = requestAllPosts.responseText;
+            if (response == "Not logged in."){
+                window.location.href = "webbook_login.html";
+            } else {
+                let allposts = response.split("[nln_str]");
+                allposts.forEach(one_post => {
+                    if (one_post.length > 0){
+                        let contentHomePost = document.createElement("div");
+                        let contentHomePostAuthor = document.createElement("h3");
+                        let contentHomePostContent = document.createElement("div");
+                        let contentHomePostContentP = document.createElement("p");
+                        let contentHomePostLine = document.createElement("div");
+                        let contentHomePostStarContainer = document.createElement("div");
+                        let contentHomePostStarContainerImg = document.createElement("img");
+
+                        contentHomePost.classList = "content-home-post";
+                        contentHomePostAuthor.classList = "content-home-post-author";
+                        contentHomePostAuthor.innerHTML = one_post.split("[sprtr_str]")[1];
+                        contentHomePostContentP.innerHTML = one_post.split("[sprtr_str]")[2];
+                        contentHomePostContent.classList = "content-home-post-content";
+                        contentHomePostContent.appendChild(contentHomePostContentP);
+                        contentHomePostLine.classList = "content-home-post-line";
+                        contentHomePostStarContainer.classList = "content-home-post-starcontainer";
+                        contentHomePostStarContainer.onclick = function (){
+
+                        };
+                        contentHomePostStarContainerImg.src = "../resources/star.png";
+                        contentHomePostStarContainer.appendChild(contentHomePostStarContainerImg);
+                        contentHomePost.appendChild(contentHomePostAuthor);
+                        contentHomePost.appendChild(contentHomePostContent);
+                        contentHomePost.appendChild(contentHomePostLine);
+                        contentHomePost.appendChild(contentHomePostStarContainer);
+                        document.getElementById("content-home").appendChild(contentHomePost);
+                    }
+                });
+            }
+        }
+    }
+    requestAllPosts.send();
 };
+function newpost(){
+    window.location.href = "webbook_post.html";
+}
 /*
 function newpost(){
     window.location.href = "https://openweb.fwh.is/ow_webbook/webbook_new-post.php";
