@@ -60,10 +60,29 @@ window.onload = function (){
 function newpost(){
     window.location.href = "webbook_post.html";
 }
-/*
-function newpost(){
-    window.location.href = "https://openweb.fwh.is/ow_webbook/webbook_new-post.php";
+function followuser(){
+    let requestFollow = new XMLHttpRequest();
+    requestFollow.open("POST", `https://sasasaia.pythonanywhere.com/add-user/${document.getElementById("follow-user-input").value}`, true);
+    requestFollow.withCredentials = true;
+    requestFollow.onreadystatechange = function (){
+        if (requestFollow.status == 200 && requestFollow.readyState == 4){
+            let response = requestFollow.responseText;
+            if (response == "Not logged in."){
+                window.location.href = "webbook_login.html";
+            } else {
+                let main = document.getElementById("main");
+                let p = document.createElement("p");
+                p.id = "context-dialog";
+                p.innerHTML = response;
+                main.appendChild(p);
+                setTimeout(function (){
+                    main.removeChild(p);
+                }, 5000);
+            }
+        }
+    }
 }
+/*
 var isfollowuserclicked = false;
 function followuser(){
     if (!isfollowuserclicked){

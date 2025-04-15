@@ -271,6 +271,14 @@ nav {
     background-color: white;
     color: var(--black);
 }
+#context-dialog {
+    animation: fadeout 5s ease-in-out;
+    bottom: 32px;
+    padding: 16px 0;
+    position: fixed;
+    text-align: center;
+    width: calc(100% - 32px);
+}
 @media (max-width: 600px) {
     .nav-left > ul {
         display: none;
