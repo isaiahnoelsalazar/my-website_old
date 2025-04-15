@@ -81,6 +81,7 @@ function followuser(){
             }
         }
     }
+    requestFollow.send();
 }
 /*
 var isfollowuserclicked = false;
