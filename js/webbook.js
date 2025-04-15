@@ -1,3 +1,4 @@
+let uid = "";
 window.onload = function (){
     homeclick();
     let requestSession = new XMLHttpRequest();
@@ -8,10 +9,15 @@ window.onload = function (){
             let response = requestSession.responseText;
             if (response == "Not logged in."){
                 window.location.href = "webbook_login.html";
+            } else {
+                uid = response.split("[sprtr_str]")[1];
+                getPosts();
             }
         }
     }
     requestSession.send();
+};
+function getPosts(){
     let requestAllPosts = new XMLHttpRequest();
     requestAllPosts.open("GET", "https://sasasaia.pythonanywhere.com/get-posts", true);
     requestAllPosts.withCredentials = true;
@@ -41,9 +47,25 @@ window.onload = function (){
                         contentHomePostLine.classList = "content-home-post-line";
                         contentHomePostStarContainer.classList = "content-home-post-starcontainer";
                         contentHomePostStarContainer.onclick = function (){
-
+                            let requestStar = new XMLHttpRequest();
+                            requestStar.open("POST", `https://sasasaia.pythonanywhere.com/star-post/${one_post.split("[sprtr_str]")[0]}`, true);
+                            requestStar.withCredentials = true;
+                            requestStar.onreadystatechange = function (){
+                                if (requestStar.status == 200 && requestStar.readyState == 4){
+                                    let thisresponse = requestStar.responseText;
+                                    if (thisresponse == "Not logged in."){
+                                        window.location.href = "webbook_login.html";
+                                    } else {
+                                        if (thisresponse.split("[sprtr_str]")[0] == "Success"){
+                                            contentHomePostStarContainerImg.src = thisresponse.split("[sprtr_str]")[1];
+                                        }
+                                    }
+                                }
+                            }
+                            requestStar.send();
                         };
-                        contentHomePostStarContainerImg.src = "../resources/star.png";
+                        let starredUids = one_post.split("[sprtr_str]")[3].substring(1, one_post.split("[sprtr_str]")[3].length - 1).split(",");
+                        contentHomePostStarContainerImg.src = starredUids.includes(uid) ? "../resources/star_filled.png" : "../resources/star.png";
                         contentHomePostStarContainer.appendChild(contentHomePostStarContainerImg);
                         contentHomePost.appendChild(contentHomePostAuthor);
                         contentHomePost.appendChild(contentHomePostContent);
@@ -56,13 +78,13 @@ window.onload = function (){
         }
     }
     requestAllPosts.send();
-};
+}
 function newpost(){
     window.location.href = "webbook_post.html";
 }
 function followuser(){
     let requestFollow = new XMLHttpRequest();
-    requestFollow.open("POST", `https://sasasaia.pythonanywhere.com/add-user/${document.getElementById("follow-user-input").value}`, true);
+    requestFollow.open("POST", `https://sasasaia.pythonanywhere.com/add-friend/${document.getElementById("follow-user-input").value}`, true);
     requestFollow.withCredentials = true;
     requestFollow.onreadystatechange = function (){
         if (requestFollow.status == 200 && requestFollow.readyState == 4){
@@ -83,56 +105,6 @@ function followuser(){
     }
     requestFollow.send();
 }
-/*
-var isfollowuserclicked = false;
-function followuser(){
-    if (!isfollowuserclicked){
-        var req = new XMLHttpRequest();
-        req.open("GET", "https://openweb.fwh.is/ow_webbook/followuser.php?user_id=" + document.getElementById("follow-user-input").value, true);
-        req.onreadystatechange = function (){
-            if (req.status == 200 && req.readyState == 4){
-                var res = req.responseText;
-                var p = document.createElement("p");
-                p.style.animation = "fadeout 5s ease-in";
-                p.style.bottom = "32px";
-                p.style.padding = "16px 0";
-                p.style.position = "fixed";
-                p.style.textAlign = "center";
-                p.style.visibility = "hidden";
-                p.style.width = "100%";
-                p.innerHTML = res;
-                document.getElementById("content-community").appendChild(p);
-                setTimeout(function (){
-                    document.getElementById("content-community").removeChild(p);
-                }, 5000);
-                isfollowuserclicked = false;
-            }
-        };
-        req.send();
-        isfollowuserclicked = true;
-    }
-}
-var isstarclicked = false;
-function starclick(postid){
-	if (!isstarclicked){
-        var req = new XMLHttpRequest();
-        req.open("GET", "https://openweb.fwh.is/ow_webbook/starpost.php?post_id=" + postid, true);
-        req.onreadystatechange = function (){
-            if (req.status == 200 && req.readyState == 4){
-                var res = req.responseText;
-                var ressplit = res.split(":");
-                if (ressplit[1] == "yes"){
-                    document.getElementById("post-" + ressplit[0]).src = "/ow_webbook/images/star1.png";
-                } else {
-                    document.getElementById("post-" + ressplit[0]).src = "/ow_webbook/images/star0.png";
-                }
-                isstarclicked = false;
-            }
-        };
-        req.send();
-        isstarclicked = true;
-    }
-}*/
 function homeclick(){
     document.getElementById("hometab").classList.remove("unselected");
     document.getElementById("hometab").classList.add("selected");
