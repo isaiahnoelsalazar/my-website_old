@@ -49,3 +49,6 @@ function save(){
     }
     requestSave.send();
 }
+function back(){
+    window.history.back();
+}
