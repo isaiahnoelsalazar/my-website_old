@@ -82,7 +82,7 @@ header {
     display: flex;
     height: 50px;
     justify-content: center;
-    margin: 24px;
+    margin: 12px 24px;
     width: 50px;
 }
 #back_arrow:hover {
@@ -95,6 +95,7 @@ header {
 }
 @media (max-width: 600px) {
     div {
+        height: calc(100vh - 75px);
         width: 100%;
     }
 }
