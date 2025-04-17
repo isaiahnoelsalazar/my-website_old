@@ -105,7 +105,7 @@ header {
         border: none;
         position: unset;
     }
-    header > a {
+    #back_arrow {
         margin: 0 0 12px 0;
     }
 }
