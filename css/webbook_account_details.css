@@ -94,8 +94,18 @@ header {
     width: 32px;
 }
 @media (max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
     div {
-        height: calc(100vh - 75px);
+        height: 100%;
         width: 100%;
+    }
+    header {
+        border: none;
+        position: unset;
+    }
+    header > a {
+        margin: 0 0 12px 0;
     }
 }

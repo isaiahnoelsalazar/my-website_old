@@ -70,7 +70,7 @@ div > p {
 }
 @media (max-width: 600px) {
     div {
-        height: 100vh;
+        height: 100%;
         width: 100%;
     }
 }
