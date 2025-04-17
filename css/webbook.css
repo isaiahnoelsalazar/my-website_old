@@ -194,6 +194,10 @@ nav {
 .content-home-post-content > * {
     margin: 0;
 }
+.content-home-post-content > p > iframe {
+    height: 480px;
+    width: 100%;
+}
 .content-home-post-line {
     border: solid var(--gray) 1px;
     border-radius: 4px;

@@ -28,6 +28,7 @@ function getPosts(){
                 window.location.href = "webbook_login.html";
             } else {
                 let allposts = response.split("[nln_str]");
+                allposts.reverse();
                 allposts.forEach(one_post => {
                     if (one_post.length > 0){
                         let contentHomePost = document.createElement("div");
@@ -65,7 +66,7 @@ function getPosts(){
                             requestStar.send();
                         };
                         let starredUids = one_post.split("[sprtr_str]")[3].substring(1, one_post.split("[sprtr_str]")[3].length - 1).split(",");
-                        contentHomePostStarContainerImg.src = starredUids.includes(uid) ? "../resources/star_filled.png" : "../resources/star.png";
+                        contentHomePostStarContainerImg.src = !starredUids.includes(uid) ? "../resources/star_filled.png" : "../resources/star.png";
                         contentHomePostStarContainer.appendChild(contentHomePostStarContainerImg);
                         contentHomePost.appendChild(contentHomePostAuthor);
                         contentHomePost.appendChild(contentHomePostContent);
