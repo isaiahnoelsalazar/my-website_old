@@ -301,4 +301,8 @@ nav {
     .content-home-post, .content-community-add, #content-community > button {
         width: 80%;
     }
+    .content-home-post-content > p > iframe {
+        height: 240px;
+        width: 100%;
+    }
 }
