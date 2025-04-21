@@ -17,9 +17,9 @@ try:
             get_post.post_uid_likes = "["+",".join(a)+"]"
             db.session.commit()
             result = "Success" + separator_string + ("../resources/star.png" if toadd else "../resources/star_filled.png")
-        except Exception as eee1:
-            result = "Server error: " + repr(eee1)
+        except:
+            result = "Server error"
     else:
         result = "Not logged in."
-except Exception as eee2:
-    result = "Server error: " + repr(eee2)
+except:
+    result = "Server error"
