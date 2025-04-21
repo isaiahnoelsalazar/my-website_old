@@ -1,3 +1,7 @@
+import execute_func
+
+a = execute_func.executeFunc("""
+result = ""
 input_username = request.args.get("username")
 input_password = request.args.get("password")
 
@@ -9,6 +13,8 @@ try:
             session["logged_in"] = "yes"
             session["uid"] = str(a.uid)
             found = True
-    return "Success" if found else "Login failed. Please check your username and password."
+    result = "Success" if found else "Login failed. Please check your username and password."
 except:
-    return "Server error"
+    result = "Server error"
+""")
+print(a["result"])
