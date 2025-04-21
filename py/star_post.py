@@ -1,4 +1,5 @@
 result = ""
+global a, b, c, d, e, f
 try:
     if session.get("logged_in", "no") != "no":
         try:
