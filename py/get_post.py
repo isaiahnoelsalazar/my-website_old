@@ -16,4 +16,4 @@ try:
     else:
         result = "Not logged in."
 except:
-    result = "Server error: " + a + "\n" + b + "\n" + c
+    result = "Server error"
