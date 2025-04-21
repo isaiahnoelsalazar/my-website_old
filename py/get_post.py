@@ -1,6 +1,5 @@
-from collections import Counter
-
 result = ""
+global a, b, c, d, e, f
 try:
     if session.get("logged_in", "no") != "no":
         post_string = ""
@@ -16,5 +15,5 @@ try:
         result = post_string
     else:
         result = "Not logged in."
-except Exception as eee:
-    result = "Server error: " + repr(eee)
+except:
+    result = "Server error: " + a + "\n" + b + "\n" + c
