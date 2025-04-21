@@ -14,5 +14,5 @@ try:
         result = post_string
     else:
         result = "Not logged in."
-except:
-    result = "Server error"
+except Exception as eee:
+    result = "Server error: " + repr(eee)
