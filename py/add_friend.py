@@ -1,6 +1,7 @@
 result = ""
 global a, b, c, d, e, f
 try:
+    uid = this_uid
     if session.get("logged_in", "no") != "no":
         try:
             get_user = WebBookUser.query.get_or_404(int(uid))

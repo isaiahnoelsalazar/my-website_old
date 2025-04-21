@@ -1,6 +1,7 @@
 result = ""
 global a, b, c, d, e, f
 try:
+    post_id = this_post_id
     if session.get("logged_in", "no") != "no":
         try:
             get_post = WebBookPost.query.get_or_404(int(post_id))
