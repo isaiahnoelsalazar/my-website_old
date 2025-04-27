@@ -30,7 +30,6 @@ jobs:
           foreach($file in (Get-ChildItem "${{ github.workspace }}")) {
               echo $file
           }
-    - name: test
     - run: |
           foreach($file in (Get-ChildItem ".")) {
               echo $file
