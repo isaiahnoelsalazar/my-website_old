@@ -42,7 +42,7 @@ jobs:
           $versionParts[-1] = $lastPart
           $newVersionString = $versionParts -join '.'
           foreach($file in (Get-ChildItem "${{ github.workspace }}/nuget" -Recurse -Include *.csproj)) {
-              dotnet pack $file --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=$newVersionString
+              dotnet pack $file --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ steps.get-version.outputs.version }}
           }
     - uses: actions/upload-artifact@v4
       with:
