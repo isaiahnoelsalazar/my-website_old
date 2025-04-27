@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mywebsite_nugetpackage", "mywebsite_nugetpackage\mywebsite_nugetpackage.csproj", "{05E276BC-BAED-4083-9F0B-56BEECF95024}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mywebsite_nugetpackage", "mywebsite_nugetpackage.csproj", "{05E276BC-BAED-4083-9F0B-56BEECF95024}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
