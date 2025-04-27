@@ -36,7 +36,7 @@ jobs:
         path: .
     - name: Print version
     - id: print-version
-    - run: |
+      run: |
           $versionString = "${{ steps.get-version.outputs.version }}"
           $versionParts = $versionString -split '\.'
           $lastPart = [int]$versionParts[-1]
