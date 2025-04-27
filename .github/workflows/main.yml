@@ -1,0 +1,83 @@
+name: publish nuget
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - '*'
+  release:
+    types:
+      - published
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_NOLOGO: true
+  NuGetDirectory: ${{ github.workspace}}/nuget
+
+defaults:
+  run:
+    shell: pwsh
+
+jobs:
+  create_nuget:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v0.9.7
+      with:
+        versionSpec: 5.x
+    - name: Determine Version
+      uses: gittools/actions/gitversion/execute@v0.9.7
+      id: gitversion
+    - name: Display GitVersion outputs
+      run: |
+        echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
+    - run: dotnet pack ~/nuget/mywebsite_nugetpackage.csproj --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ needs.build.outputs.Version }}
+    - uses: actions/upload-artifact@v4
+      with:
+        name: nuget
+        if-no-files-found: error
+        retention-days: 7
+        path: ${{ env.NuGetDirectory }}/*.nupkg
+
+  validate_nuget:
+    runs-on: ubuntu-latest
+    needs: [ create_nuget ]
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: nuget
+          path: ${{ env.NuGetDirectory }}
+
+  run_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+    - name: Run tests
+      run: dotnet test --configuration Release
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [ validate_nuget, run_test ]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: nuget
+          path: ${{ env.NuGetDirectory }}
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v4
+      - name: Prep packages
+        run: dotnet nuget add source --username saiaaaaaaa --password ${{ secrets.NUGET_PACKAGE_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/saiaaaaaaa/index.json"
+      - name: Push package to GitHub packages
+        run: dotnet nuget push ${{ env.NuGetDirectory }}/*.nupkg --api-key ${{ secrets.NUGET_PACKAGE_TOKEN }}  --source "github"
