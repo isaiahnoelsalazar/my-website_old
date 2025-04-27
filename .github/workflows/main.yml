@@ -65,7 +65,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
     - name: Run tests
-      run: dotnet test --configuration Release
+      run: dotnet test /nuget/mywebsite_nugetpackage.csproj --configuration Release
 
   deploy:
     runs-on: ubuntu-latest
