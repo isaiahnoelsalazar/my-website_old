@@ -40,7 +40,7 @@ jobs:
       run: |
         echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
     - run: |
-          foreach($file in (Get-ChildItem "${{ github.workspace }}")) {
+          foreach($file in (Get-ChildItem "${{ github.workspace }}/nuget")) {
               echo "File: $file"
           }
     - run: dotnet pack ~${{ github.workspace }}/nuget/mywebsite_nugetpackage.sln --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ env.GitVersion_SemVer }}
