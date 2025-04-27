@@ -29,19 +29,21 @@ jobs:
         fetch-depth: 0
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
-    - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9.7
+    - name: test action
+      id: get-version
+      uses: beaconbrigade/package-json-version@v0.3.2
       with:
-        versionSpec: 5.x
-    - name: Determine Version
-      uses: gittools/actions/gitversion/execute@v0.9.7
-      id: gitversion
-    - name: Display GitVersion outputs
-      run: |
-        echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
+        path: .
+    - run: |
+          $versionString = "${{ steps.get-version.outputs.version }}"
+          $versionParts = $versionString -split '\.'
+          $lastPart = [int]$versionParts[-1]
+          $lastPart++
+          $versionParts[-1] = $lastPart
+          $newVersionString = $versionParts -join '.'
     - run: |
           foreach($file in (Get-ChildItem "${{ github.workspace }}/nuget" -Recurse -Include *.csproj)) {
-              dotnet pack $file --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ env.GitVersion_SemVer }}
+              dotnet pack $file --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=$newVersionString
           }
     - uses: actions/upload-artifact@v4
       with:
