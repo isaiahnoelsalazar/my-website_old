@@ -1,0 +1,7 @@
+jdk:
+  - openjdk17
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=mywebsite_androidpackage-release.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.saiaaaaaaa -DartifactId=mywebsite_androidpackage -Dversion=1.0 -Dpackaging=aar -DgeneratePom=true
