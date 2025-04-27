@@ -40,10 +40,9 @@ jobs:
       run: |
         echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
     - run: |
-          foreach($file in (Get-ChildItem "${{ github.workspace }}/nuget")) {
-              echo "File: $file"
+          foreach($file in (Get-ChildItem "${{ github.workspace }}/nuget" -Recurse -Include *.csproj)) {
+              dotnet pack $file --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ env.GitVersion_SemVer }}
           }
-    - run: dotnet pack ~${{ github.workspace }}/nuget/mywebsite_nugetpackage.sln --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ env.GitVersion_SemVer }}
     - uses: actions/upload-artifact@v4
       with:
         name: nuget
@@ -69,7 +68,10 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
     - name: Run tests
-      run: dotnet test ~${{ github.workspace }}/nuget/mywebsite_nugetpackage.sln --configuration Release
+      run: |
+          foreach($file in (Get-ChildItem "${{ github.workspace }}/nuget" -Recurse -Include *.csproj)) {
+              dotnet test $file --configuration Release
+          }
 
   deploy:
     runs-on: ubuntu-latest
