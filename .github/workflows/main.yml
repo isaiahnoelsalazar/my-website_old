@@ -39,7 +39,7 @@ jobs:
     - name: Display GitVersion outputs
       run: |
         echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
-    - run: dotnet pack /nuget/mywebsite_nugetpackage.csproj --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ env.GitVersion_SemVer }}
+    - run: dotnet pack ~/nuget/mywebsite_nugetpackage.csproj --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ env.GitVersion_SemVer }}
     - uses: actions/upload-artifact@v4
       with:
         name: nuget
@@ -65,7 +65,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
     - name: Run tests
-      run: dotnet test /nuget/mywebsite_nugetpackage.csproj --configuration Release
+      run: dotnet test ~/nuget/mywebsite_nugetpackage.csproj --configuration Release
 
   deploy:
     runs-on: ubuntu-latest
