@@ -39,7 +39,7 @@ jobs:
     - name: Display GitVersion outputs
       run: |
         echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
-    - run: dotnet pack ~/nuget/mywebsite_nugetpackage.csproj --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ needs.build.outputs.Version }}
+    - run: dotnet pack /nuget/mywebsite_nugetpackage.csproj --configuration Release --output ${{ env.NuGetDirectory }} -p:PackageVersion=${{ needs.build.outputs.Version }}
     - uses: actions/upload-artifact@v4
       with:
         name: nuget
