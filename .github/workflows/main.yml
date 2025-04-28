@@ -82,7 +82,7 @@ jobs:
         with:
           name: nuget
           path: ${{ env.NuGetDirectory }}
-      - name: Setup .NET Core
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
       - name: Prep packages
         run: dotnet nuget add source --username saiaaaaaaa --password ${{ secrets.NUGET_PACKAGE_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/saiaaaaaaa/index.json"
