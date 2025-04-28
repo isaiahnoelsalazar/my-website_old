@@ -1,7 +1,7 @@
 {
     "name": "@saiaaaaaaa/my-website",
-    "version": "1.0.3",
-    "description": "My website",
+    "version": "1.0.4",
+    "description": "My website NuGet package",
     "main": "/nuget/TestClass.cs",
     "author": "saiaaaaaaa"
   }
