@@ -25,7 +25,89 @@ import com.github.saiaaaaaaa.mywebsite_androidpackage.FlippableImageView;
 import com.github.saiaaaaaaa.mywebsite_androidpackage.Fullscreen;
 ```
 ## What is available in the Android dependency?
-## 1. EasySQL
+## 1. Check
+- Check if a String contains any symbols
+```
+Check.hasSymbols("Sample text"); // returns false
+Check.hasSymbols("Sample text!"); // returns true
+```
+- Check if a String contains any numbers
+```
+Check.hasNumbers("Sample text"); // returns false
+Check.hasNumbers("Sample text1"); // returns true
+```
+- Check if a String contains any spaces
+```
+Check.hasSpaces("Sample_text"); // returns false
+Check.hasSpaces("Sample text"); // returns true
+```
+- Check if a String is a valid email
+```
+Check.Email.addValidDomainName("gmail");
+Check.Email.addValidDomainName("outlook");
+Check.Email.addValidDomainName("yahoo");
+
+Check.Email.addValidDomainExtensions("com");
+
+Check.Email.isValid("isaiahnoelsalazar474@gmail.com") // returns true
+
+// or
+
+Check.Email.shouldUseFullDomain(); // Check.Email.shouldUseFullDomain(true); also works
+Check.Email.addValidDomain("gmail.com");
+
+Check.Email.isValid("isaiahnoelsalazar474@gmail.com") // returns true
+```
+- Check how many seconds are left until specified date
+```
+Date now = new Date("02/10/2025");
+Date until = new Date("02/14/2025");
+
+Check.howManySecondsLeft(now, until); // returns 345600.0
+```
+- Check how many minutes are left until specified date
+```
+Date now = new Date("02/10/2025");
+Date until = new Date("02/14/2025");
+
+Check.howManyMinutesLeft(now, until); // returns 5760.0
+```
+- Check how many hours are left until specified date
+```
+Date now = new Date("02/10/2025");
+Date until = new Date("02/14/2025");
+
+Check.howManyHoursLeft(now, until); // returns 96.0
+```
+- Check how many days are left until specified date
+```
+Date now = new Date("02/10/2025");
+Date until = new Date("02/14/2025");
+
+Check.howManyDaysLeft(now, until); // returns 4.0
+```
+## 2. Convert
+- Convert a String to Base64
+```
+Convert.toBase64("Sample text"); // returns "U2FtcGxlIHRleHQ="
+```
+- Convert a Base64 String to normal String
+```
+Convert.fromBase64("U2FtcGxlIHRleHQ="); // returns "Sample text"
+```
+- Convert a date to MM/DD/YY
+```
+Convert.dateToMMDDYY(new Date());
+```
+- Convert a date to DD/MM/YY
+```
+Convert.dateToDDMMYY(new Date());
+```
+- Convert a date to YY/MM/DD
+```
+Convert.dateToYYMMDD(new Date());
+```
+## 3. EasySQL
 - Initialize EasySQL using context
 ```
 EasySQL easySQL = new EasySQL(context);
@@ -65,7 +147,7 @@ easySQL.deleteFromTable("sampledb", "sampletable", "firstname:FirstNameSaia");
 ```
 easySQL.clearTable("sampledb", "sampletable");
 ```
-## 2. Fullscreen
+## 4. Fullscreen
 > Keyword 'this' refers to any valid activity
 - Enable fullscreen on any activity
 ```
@@ -75,94 +157,94 @@ Fullscreen.enable(this);
 ```
 Fullscreen.disable(this);
 ```
-## 3. Check
-- Check if a String contains any symbols
+## 5. FlippableImageView
+- Insert FlippableImageView in any of your layout/*.xml files like a normal ImageView
 ```
-Check.hasSymbols("Sample text"); // returns false
-Check.hasSymbols("Sample text!"); // returns true
+<com.github.saiaaaaaaa.cod.FlippableImageView
+    android:id="@+id/img1"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/sample_image" />
 ```
-- Check if a String contains any numbers
-```
-Check.hasNumbers("Sample text"); // returns false
-Check.hasNumbers("Sample text1"); // returns true
-```
-- Check if a String contains any spaces
-```
-Check.hasSpaces("Sample_text"); // returns false
-Check.hasSpaces("Sample text"); // returns true
-```
-- Check if a String is a valid email
-```
-Check.Email.addValidDomainName("gmail");
-Check.Email.addValidDomainName("outlook");
-Check.Email.addValidDomainName("yahoo");
+> Note: The code above is an example.
+### Methods
+> Calling the methods below will need an initialized object for FlippableImageView like a normal ImageView
 
-Check.Email.addValidDomainExtensions("com");
-
-Check.Email.isValid("isaiahnoelsalazar474@gmail.com") // returns true
+> Example:
 ```
-- Check how many seconds are left until specified date
+FlippableImageView img1 = findViewById(R.id.img1);
 ```
-Date now = new Date("02/10/2025");
-Date until = new Date("02/14/2025");
-
-Check.howManySecondsLeft(now, until); // returns 345600.0
+- Set a front image
 ```
-- Check how many minutes are left until specified date
+img1.setFrontImage(R.drawable.sample_front_image);
 ```
-Date now = new Date("02/10/2025");
-Date until = new Date("02/14/2025");
-
-Check.howManyMinutesLeft(now, until); // returns 5760.0
+- Set a back image
 ```
-- Check how many hours are left until specified date
+img1.setBackImage(R.drawable.sample_back_image);
 ```
-Date now = new Date("02/10/2025");
-Date until = new Date("02/14/2025");
-
-Check.howManyHoursLeft(now, until); // returns 96.0
+- Flip the image view
 ```
-- Check how many days are left until specified date
+img1.flip();
 ```
-Date now = new Date("02/10/2025");
-Date until = new Date("02/14/2025");
-
-Check.howManyDaysLeft(now, until); // returns 4.0
+- Flip the image view upon clicking
 ```
-## 4. Convert
-- Convert a String to Base64
-```
-Convert.toBase64("Sample text"); // returns "U2FtcGxlIHRleHQ="
-```
-- Convert a Base64 String to normal String
-```
-Convert.fromBase64("U2FtcGxlIHRleHQ="); // returns "Sample text"
-```
-- Convert a date to MM/DD/YY
-```
-Convert.dateToMMDDYY(new Date());
-```
-- Convert a date to DD/MM/YY
-```
-Convert.dateToDDMMYY(new Date());
-```
-- Convert a date to YY/MM/DD
-```
-Convert.dateToYYMMDD(new Date());
+img1.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        img1.flip();
+    }
+});
 ```
 ## NuGet package
 - Add package in your project by running this command in the Package Manager Console
 > Package Manager Console is found in Visual Studio's "Tools > NuGet Package Manager > Package Manager Console"
 ```
-dotnet add package mywebsite_nugetpackage --version 1.0.6
+dotnet add package mywebsite_nugetpackage --version 1.0.7
 ```
 - Import the package based on your needs
 ```
 using mywebsite_nugetpackage;
 ```
 ## What is available in the NuGet package?
-## 1. TestClass
-- Just a print method inside
+## 1. Check
+- Check if a String contains any symbols
 ```
-TestClass.Print("Sample text");
+Check.HasSymbols("Sample text"); // returns false
+Check.HasSymbols("Sample text!"); // returns true
+```
+- Check if a String contains any numbers
+```
+Check.HasNumbers("Sample text"); // returns false
+Check.HasNumbers("Sample text1"); // returns true
+```
+- Check if a String contains any spaces
+```
+Check.HasSpaces("Sample_text"); // returns false
+Check.HasSpaces("Sample text"); // returns true
+```
+- Check if a String is a valid email
+```
+Check.Email.AddValidDomainName("gmail");
+Check.Email.AddValidDomainName("outlook");
+Check.Email.AddValidDomainName("yahoo");
+
+Check.Email.AddValidDomainExtensions("com");
+
+Check.Email.IsValid("isaiahnoelsalazar474@gmail.com") // returns true
+
+// or
+
+Check.Email.ShouldUseFullDomain(); // Check.Email.ShouldUseFullDomain(true); also works
+Check.Email.AddValidDomain("gmail.com");
+
+Check.Email.IsValid("isaiahnoelsalazar474@gmail.com") // returns true
+```
+## 2. Convert
+- Convert a String to Base64
+```
+Convert.ToBase64("Sample text"); // returns "U2FtcGxlIHRleHQ="
+```
+- Convert a Base64 String to normal String
+```
+Convert.FromBase64("U2FtcGxlIHRleHQ="); // returns "Sample text"
 ```
