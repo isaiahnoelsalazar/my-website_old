@@ -10,6 +10,8 @@ public class Check {
 
         static List<String> validDomainNames = new ArrayList<>();
         static List<String> validDomainExtensions = new ArrayList<>();
+        static List<String> validDomains = new ArrayList<>();
+        static boolean shouldUseFullDomain = false;
 
         public static void addValidDomainName(String str){
             validDomainNames.add(str);
@@ -19,23 +21,44 @@ public class Check {
             validDomainExtensions.add(str);
         }
 
+        public static void addValidDomain(String str){
+            validDomains.add(str);
+        }
+
+        public static void shouldUseFullDomain(){
+            shouldUseFullDomain = true;
+        }
+
+        public static void shouldUseFullDomain(boolean bool){
+            shouldUseFullDomain = bool;
+        }
+
         public static boolean isValid(String str){
-            try {
-                String[] domain = str.split("@");
-                String domainName = domain[1].split("\\.")[0];
-                String domainExtension = domain[1].split("\\.")[1];
-                return validDomainNames.contains(domainName) && validDomainExtensions.contains(domainExtension);
-            } catch (Exception exception){
-                return false;
+            if (shouldUseFullDomain){
+                try {
+                    String[] domain = str.split("@");
+                    return validDomains.contains(domain[1]);
+                } catch (Exception exception){
+                    return false;
+                }
+            } else {
+                try {
+                    String[] domain = str.split("@");
+                    String domainName = domain[1].split("\\.")[0];
+                    String domainExtension = domain[1].split("\\.")[1];
+                    return validDomainNames.contains(domainName) && validDomainExtensions.contains(domainExtension);
+                } catch (Exception exception){
+                    return false;
+                }
             }
         }
     }
 
     public static boolean hasSymbols(String str){
         String symbols = "~`!@#$%^&*()_+-=[]{}\\|'\";:,.<>/?";
-        for (int a = 0; a < str.length(); a++){
-            for (int _c4 = 0; _c4 < symbols.length(); _c4++){
-                if (str.charAt(a) == symbols.charAt(_c4)){
+        for (char a : str.toCharArray()){
+            for (char b : symbols.toCharArray()){
+                if (a == b){
                     return true;
                 }
             }
@@ -45,9 +68,9 @@ public class Check {
 
     public static boolean hasNumbers(String str){
         String numbers = "0123456789";
-        for (int a = 0; a < str.length(); a++){
-            for (int b = 0; b < numbers.length(); b++){
-                if (str.charAt(a) == numbers.charAt(b)){
+        for (char a : str.toCharArray()){
+            for (char b : numbers.toCharArray()){
+                if (a == b){
                     return true;
                 }
             }
@@ -56,8 +79,8 @@ public class Check {
     }
 
     public static boolean hasSpaces(String str){
-        for (int a = 0; a < str.length(); a++){
-            if (str.charAt(a) == ' '){
+        for (char a : str.toCharArray()){
+            if (a == ' '){
                 return true;
             }
         }
