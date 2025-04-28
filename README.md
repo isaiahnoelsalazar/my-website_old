@@ -151,8 +151,18 @@ Convert.dateToDDMMYY(new Date());
 Convert.dateToYYMMDD(new Date());
 ```
 ## NuGet package
-- Add dependency in your project by running this command in the Package Manager Console
+- Add package in your project by running this command in the Package Manager Console
 > Package Manager Console is found in Visual Studio's "Tools > NuGet Package Manager > Package Manager Console"
 ```
 dotnet add package mywebsite_nugetpackage --version 1.0.6
+```
+- Import the package based on your needs
+```
+using mywebsite_nugetpackage;
+```
+## What is available in the NuGet package?
+## 1. TestClass
+- Just a print method inside
+```
+TestClass.Print("Sample text");
 ```

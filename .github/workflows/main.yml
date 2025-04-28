@@ -87,6 +87,6 @@ jobs:
       - name: Prep packages
         run: dotnet nuget add source --username saiaaaaaaa --password ${{ secrets.NUGET_PACKAGE_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/saiaaaaaaa/index.json"
       - name: Push package to GitHub packages
-        run: dotnet nuget push ${{ env.NuGetDirectory }}/*.nupkg --api-key ${{ secrets.NUGET_PACKAGE_TOKEN }}  --source "github"
+        run: dotnet nuget push ${{ env.NuGetDirectory }}/*.nupkg --api-key ${{ secrets.NUGET_PACKAGE_TOKEN }}  --source "github" --skip-duplicate
       - name: Push package to nuget.org
         run: dotnet nuget push ${{ env.NuGetDirectory }}/*.nupkg --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
