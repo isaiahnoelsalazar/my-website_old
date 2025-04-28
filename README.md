@@ -147,17 +147,7 @@ easySQL.deleteFromTable("sampledb", "sampletable", "firstname:FirstNameSaia");
 ```
 easySQL.clearTable("sampledb", "sampletable");
 ```
-## 4. Fullscreen
-> Keyword 'this' refers to any valid activity
-- Enable fullscreen on any activity
-```
-Fullscreen.enable(this);
-```
-- Disable fullscreen on any activity
-```
-Fullscreen.disable(this);
-```
-## 5. FlippableImageView
+## 4. FlippableImageView
 - Insert FlippableImageView in any of your layout/*.xml files like a normal ImageView
 ```
 <com.github.saiaaaaaaa.cod.FlippableImageView
@@ -194,6 +184,16 @@ img1.setOnClickListener(new View.OnClickListener() {
         img1.flip();
     }
 });
+```
+## 5. Fullscreen
+> Keyword 'this' refers to any valid activity
+- Enable fullscreen on any activity
+```
+Fullscreen.enable(this);
+```
+- Disable fullscreen on any activity
+```
+Fullscreen.disable(this);
 ```
 ## NuGet package
 - Add package in your project by running this command in the Package Manager Console
