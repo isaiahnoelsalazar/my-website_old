@@ -3,5 +3,5 @@ jdk:
 before_install:
   - ./scripts/prepareJitpackEnvironment.sh
 install:
-  - FILE="-Dfile=mywebsite_androidpackage-release.aar"
-  - mvn install:install-file $FILE -DgroupId=com.github.saiaaaaaaa -DartifactId=mywebsite_androidpackage -Dversion=1.0.1 -Dpackaging=aar -DgeneratePom=true
+  - FILE="-Dfile=mywebsite_androiddependency-release.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.saiaaaaaaa -DartifactId=mywebsite_androiddependency -Dversion=1.0.2 -Dpackaging=aar -DgeneratePom=true

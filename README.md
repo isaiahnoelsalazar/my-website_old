@@ -18,11 +18,11 @@ implementation 'com.github.saiaaaaaaa:my-website:(version)'
 > The version will be seen in the Releases section
 - Import the dependency based on your needs
 ```
-import com.github.saiaaaaaaa.mywebsite_androidpackage.Check;
-import com.github.saiaaaaaaa.mywebsite_androidpackage.Convert;
-import com.github.saiaaaaaaa.mywebsite_androidpackage.EasySQL;
-import com.github.saiaaaaaaa.mywebsite_androidpackage.FlippableImageView;
-import com.github.saiaaaaaaa.mywebsite_androidpackage.Fullscreen;
+import com.github.saiaaaaaaa.mywebsite_androiddependency.Check;
+import com.github.saiaaaaaaa.mywebsite_androiddependency.Convert;
+import com.github.saiaaaaaaa.mywebsite_androiddependency.EasySQL;
+import com.github.saiaaaaaaa.mywebsite_androiddependency.FlippableImageView;
+import com.github.saiaaaaaaa.mywebsite_androiddependency.Fullscreen;
 ```
 ## What is available in the Android dependency?
 ## 1. Check
