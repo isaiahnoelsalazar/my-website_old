@@ -1,5 +1,5 @@
 # Hello. Welcome to my website's GitHub repository.
-My website also offers an Android dependency and a NuGet package as well.
+My website also offers an Android dependency, a NuGet package, and a public Python code as well.
 ## Android dependency
 - Add JitPack in settings.gradle
 ```
@@ -248,3 +248,21 @@ Convert.ToBase64("Sample text"); // returns "U2FtcGxlIHRleHQ="
 ```
 Convert.FromBase64("U2FtcGxlIHRleHQ="); // returns "Sample text"
 ```
+## What is the "public Python code" in my website?
+This refers to raw Python scripts located in "py > public" that anyone is free to copy and paste in their own projects.
+It is not packaged as a pip module and consists of only the bare files.
+## How do you use it?
+## 1. Download the file, copy and paste it in your projects
+## 2. Open the file, copy and paste the code in your scripts
+## 3. Use "urllib.request" to read the script
+Example:
+```
+import urllib.request
+
+try:
+    response = urllib.request.urlopen("https://saiaaaaaaa.github.io/my-website/py/public/test.py")
+    content = response.read().decode('utf-8')
+except:
+    print("Server error")
+```
+The "content" variable contains the full script assuming the function "response.read()" ran properly.
