@@ -205,6 +205,7 @@ dotnet add package mywebsite_nugetpackage --version 1.0.7
 ```
 using mywebsite_nugetpackage;
 ```
+> Note: The NuGet package in my website only supports .NET 8.0 and above. It does not support .NET Framework.
 ## What is available in the NuGet package?
 ## 1. Check
 - Check if a String contains any symbols
