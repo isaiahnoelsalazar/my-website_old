@@ -17,20 +17,54 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
     int rotation = 0;
     boolean isFlipped = false;
     Bitmap frontImage, backImage;
+    int speed;
+
+    public enum Speed{
+        SLOW(5),
+        NORMAL(15),
+        FAST(30);
+
+        final int value;
+
+        Speed(int value){
+            this.value = value;
+        }
+    }
 
     public FlippableImageView(@NonNull Context context) {
         super(context);
         this.context = context;
+        speed = Speed.NORMAL.value;
     }
 
     public FlippableImageView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+        speed = Speed.NORMAL.value;
     }
 
     public FlippableImageView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
+        speed = Speed.NORMAL.value;
+    }
+
+    public FlippableImageView(@NonNull Context context, Speed speed) {
+        super(context);
+        this.context = context;
+        this.speed = speed.value;
+    }
+
+    public FlippableImageView(@NonNull Context context, Speed speed, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        this.context = context;
+        this.speed = speed.value;
+    }
+
+    public FlippableImageView(@NonNull Context context, Speed speed, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        this.context = context;
+        this.speed = speed.value;
     }
 
     public void setFrontImage(int resourceId){

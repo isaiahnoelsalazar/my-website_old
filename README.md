@@ -1,4 +1,4 @@
-# Hello. Welcome to my website.
+# Hello. Welcome to my website's GitHub repository.
 My website also offers an Android dependency and a NuGet package as well.
 ## Android dependency
 - Add JitPack in settings.gradle
