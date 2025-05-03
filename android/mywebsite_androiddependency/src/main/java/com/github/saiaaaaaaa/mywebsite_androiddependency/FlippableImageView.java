@@ -67,6 +67,10 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
         this.speed = speed.value;
     }
 
+    public void setSpeed(Speed speed){
+        this.speed = speed.value;
+    }
+
     public void setFrontImage(int resourceId){
         frontImage = ((BitmapDrawable) AppCompatResources.getDrawable(context, resourceId)).getBitmap();
     }
@@ -88,7 +92,7 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
             @Override
             public void run() {
                 if (!isFlipped){
-                    rotation += 15;
+                    rotation += speed;
                     if (rotation >= 90 && rotation < 180){
                         setRotationY(rotation);
                         new Handler().post(this);
@@ -102,7 +106,7 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
                         setRotationY(rotation);
                     }
                 } else {
-                    rotation -= 15;
+                    rotation -= speed;
                     if (rotation >= 90 && rotation < 180){
                         setRotationY(rotation);
                         new Handler().post(this);
