@@ -15,14 +15,14 @@ namespace mywebsite_nugetpackage
         }
 
         // I have not tested the functions below. Proceed with caution.
-        
+
         public static string FromHex(string str)
         {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < str.Length; i += 2)
             {
                 string byteStr = str.Substring(i, 2);
-                sb.Append((char)Convert.ToByte(byteStr, 16));
+                sb.Append((char)System.Convert.ToByte(byteStr, 16));
             }
             return sb.ToString();
         }
@@ -33,7 +33,7 @@ namespace mywebsite_nugetpackage
             for (int i = 0; i < str.Length; i += 8)
             {
                 string byteStr = str.Substring(i, 8);
-                sb.Append((char)Convert.ToByte(byteStr, 2));
+                sb.Append((char)System.Convert.ToByte(byteStr, 2));
             }
             return sb.ToString();
         }
@@ -43,7 +43,7 @@ namespace mywebsite_nugetpackage
             StringBuilder sb = new StringBuilder();
             foreach (char c in str)
             {
-                sb.Append(Convert.ToString(c, 2).PadLeft(8, '0'));
+                sb.Append(System.Convert.ToString(c, 2).PadLeft(8, '0'));
             }
             return sb.ToString();
         }
