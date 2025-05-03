@@ -199,13 +199,13 @@ Fullscreen.disable(this);
 - Add package in your project by running this command in the Package Manager Console
 > Package Manager Console is found in Visual Studio's "Tools > NuGet Package Manager > Package Manager Console"
 ```
-dotnet add package mywebsite_nugetpackage --version 1.0.8
+dotnet add package mywebsite_nugetpackage --version 1.0.9
 ```
 - Import the package based on your needs
 ```
 using mywebsite_nugetpackage;
 ```
-> Note: The NuGet package in my website only supports .NET 8.0 and above. It does not support .NET Framework.
+> Note: The NuGet package in my website supports .NET 6.0+ and .NET Framework 4.7+.
 ## What is available in the NuGet package?
 ## 1. Check
 - Check if a String contains any symbols
