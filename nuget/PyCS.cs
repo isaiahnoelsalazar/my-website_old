@@ -64,8 +64,8 @@ namespace mywebsite_nugetpackage
                         ZipFile.ExtractToDirectory(zipPath1, extractPath1);
                         FileStream getpip = File.Create("python3_12\\get-pip.py");
                         FileStream sitecustomize = File.Create("python3_12\\sitecustomize.py");
-                        Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.get-pip.py").CopyTo(getpip);
-                        Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.sitecustomize.py").CopyTo(sitecustomize);
+                        Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.get-pip.pycsfile").CopyTo(getpip);
+                        Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.sitecustomize.pycsfile").CopyTo(sitecustomize);
                         getpip.Close();
                         sitecustomize.Close();
                     }
