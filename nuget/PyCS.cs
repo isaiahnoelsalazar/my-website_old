@@ -21,7 +21,7 @@ namespace mywebsite_nugetpackage
                 try
                 {
                     FileStream zip = File.Create("python-3.12.9-embed-win32.zip");
-                    Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.python-3.12.9-embed-win32.pycsfile").CopyTo(zip);
+                    Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.python-3.12.9-embed-win32.zip").CopyTo(zip);
                     zip.Close();
                 }
                 catch
@@ -91,7 +91,7 @@ namespace mywebsite_nugetpackage
             }
             catch
             {
-                Console.WriteLine("Failed to download get-pip.");
+                Console.WriteLine("Failed to download get-pip. Connect to the internet to download get-pip.");
             }
             try
             {
@@ -136,11 +136,11 @@ namespace mywebsite_nugetpackage
                                 string result = reader.ReadToEnd();
                                 if (result.Length != 0)
                                 {
-                                    Console.WriteLine("PyCS initialized.");
+                                    Console.WriteLine("pip initialized.");
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Failed to initialize PyCS. Connect to the internet to initialize PyCS.");
+                                    Console.WriteLine("Failed to initialize pip. Connect to the internet to initialize pip.");
                                 }
                             }
                         }
@@ -207,11 +207,9 @@ namespace mywebsite_nugetpackage
                         string zipPath1 = "python3_12\\python312.zip";
                         string extractPath1 = "python3_12\\python312";
                         ZipFile.ExtractToDirectory(zipPath1, extractPath1);
-                        FileStream getpip = File.Create("python3_12\\get-pip.py");
+
                         FileStream sitecustomize = File.Create("python3_12\\sitecustomize.py");
-                        Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.get-pip.py").CopyTo(getpip);
                         Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.sitecustomize.py").CopyTo(sitecustomize);
-                        getpip.Close();
                         sitecustomize.Close();
                     }
                     catch
@@ -219,6 +217,25 @@ namespace mywebsite_nugetpackage
                         Console.WriteLine("Failed to extract Python 3.12 resources.");
                     }
                 }
+            }
+            try
+            {
+                if (console)
+                {
+                    Console.WriteLine("Downloading get-pip...");
+                }
+                var webReq = (HttpWebRequest)HttpWebRequest.Create("https://bootstrap.pypa.io/get-pip.py");
+                var res = webReq.GetResponse();
+                var content = res.GetResponseStream();
+
+                using (var fileStream = File.Create("python3_12\\get-pip.py"))
+                {
+                    content.CopyTo(fileStream);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Failed to download get-pip. Connect to the internet to download get-pip.");
             }
             try
             {
@@ -263,11 +280,11 @@ namespace mywebsite_nugetpackage
                                 string result = reader.ReadToEnd();
                                 if (result.Length != 0)
                                 {
-                                    Console.WriteLine("PyCS initialized.");
+                                    Console.WriteLine("pip initialized.");
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Failed to initialize PyCS. Connect to the internet to initialize PyCS.");
+                                    Console.WriteLine("Failed to initialize pip. Connect to the internet to initialize pip.");
                                 }
                             }
                         }
