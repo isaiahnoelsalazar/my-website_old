@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO.Compression;
+using System.Net;
 using System.Reflection;
 using System.Text;
 
@@ -20,7 +21,7 @@ namespace mywebsite_nugetpackage
                 try
                 {
                     FileStream zip = File.Create("python-3.12.9-embed-win32.zip");
-                    Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.python-3.12.9-embed-win32.zip").CopyTo(zip);
+                    Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.python-3.12.9-embed-win32.pycsfile").CopyTo(zip);
                     zip.Close();
                 }
                 catch
@@ -62,11 +63,9 @@ namespace mywebsite_nugetpackage
                         string zipPath1 = "python3_12\\python312.zip";
                         string extractPath1 = "python3_12\\python312";
                         ZipFile.ExtractToDirectory(zipPath1, extractPath1);
-                        FileStream getpip = File.Create("python3_12\\get-pip.py");
+
                         FileStream sitecustomize = File.Create("python3_12\\sitecustomize.py");
-                        Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.get-pip.pycsfile").CopyTo(getpip);
-                        Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.sitecustomize.pycsfile").CopyTo(sitecustomize);
-                        getpip.Close();
+                        Assembly.GetExecutingAssembly().GetManifestResourceStream("mywebsite_nugetpackage.sitecustomize.py").CopyTo(sitecustomize);
                         sitecustomize.Close();
                     }
                     catch
@@ -74,6 +73,25 @@ namespace mywebsite_nugetpackage
                         Console.WriteLine("Failed to extract Python 3.12 resources.");
                     }
                 }
+            }
+            try
+            {
+                if (console)
+                {
+                    Console.WriteLine("Downloading get-pip...");
+                }
+                var webReq = (HttpWebRequest)HttpWebRequest.Create("https://bootstrap.pypa.io/get-pip.py");
+                var res = webReq.GetResponse();
+                var content = res.GetResponseStream();
+
+                using (var fileStream = File.Create("python3_12\\get-pip.py"))
+                {
+                    content.CopyTo(fileStream);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Failed to download get-pip.");
             }
             try
             {

@@ -9,9 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="get-pip.pycsfile">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="python-3.12.9-embed-win32.pycsfile">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
