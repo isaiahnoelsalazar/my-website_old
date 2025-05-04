@@ -205,7 +205,7 @@ Fullscreen.disable(this);
 - Add package in your project by running this command in the Package Manager Console
 > Package Manager Console is found in Visual Studio's "Tools > NuGet Package Manager > Package Manager Console"
 ```
-dotnet add package mywebsite_nugetpackage --version 1.1
+dotnet add package mywebsite_nugetpackage --version 1.1.1
 ```
 - Import the package based on your needs
 ```

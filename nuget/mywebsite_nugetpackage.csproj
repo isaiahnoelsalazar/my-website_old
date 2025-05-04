@@ -12,7 +12,7 @@
     <EmbeddedResource Include="get-pip.py">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="python-3.12.9-embed-win32.zip">
+    <EmbeddedResource Include="python-3.12.9-embed-win32.pycsfile">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="sitecustomize.py">
