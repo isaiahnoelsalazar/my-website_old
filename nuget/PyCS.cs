@@ -76,17 +76,19 @@ namespace mywebsite_nugetpackage
             }
             try
             {
-                if (console)
-                {
-                    Console.WriteLine("Downloading get-pip...");
-                }
-                var webReq = (HttpWebRequest)HttpWebRequest.Create("https://bootstrap.pypa.io/get-pip.py");
-                var res = webReq.GetResponse();
-                var content = res.GetResponseStream();
+                if (!File.Exists("python3_12\\get-pip.py")){
+                    if (console)
+                    {
+                        Console.WriteLine("Downloading get-pip...");
+                    }
+                    var webReq = (HttpWebRequest)HttpWebRequest.Create("https://bootstrap.pypa.io/get-pip.py");
+                    var res = webReq.GetResponse();
+                    var content = res.GetResponseStream();
 
-                using (var fileStream = File.Create("python3_12\\get-pip.py"))
-                {
-                    content.CopyTo(fileStream);
+                    using (var fileStream = File.Create("python3_12\\get-pip.py"))
+                    {
+                        content.CopyTo(fileStream);
+                    }
                 }
             }
             catch
@@ -136,11 +138,11 @@ namespace mywebsite_nugetpackage
                                 string result = reader.ReadToEnd();
                                 if (result.Length != 0)
                                 {
-                                    Console.WriteLine("pip initialized.");
+                                    Console.WriteLine("pip downloaded.");
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Failed to initialize pip. Connect to the internet to initialize pip.");
+                                    Console.WriteLine("Failed to download pip. Connect to the internet to download pip.");
                                 }
                             }
                         }
@@ -220,17 +222,19 @@ namespace mywebsite_nugetpackage
             }
             try
             {
-                if (console)
-                {
-                    Console.WriteLine("Downloading get-pip...");
-                }
-                var webReq = (HttpWebRequest)HttpWebRequest.Create("https://bootstrap.pypa.io/get-pip.py");
-                var res = webReq.GetResponse();
-                var content = res.GetResponseStream();
+                if (!File.Exists("python3_12\\get-pip.py")){
+                    if (console)
+                    {
+                        Console.WriteLine("Downloading get-pip...");
+                    }
+                    var webReq = (HttpWebRequest)HttpWebRequest.Create("https://bootstrap.pypa.io/get-pip.py");
+                    var res = webReq.GetResponse();
+                    var content = res.GetResponseStream();
 
-                using (var fileStream = File.Create("python3_12\\get-pip.py"))
-                {
-                    content.CopyTo(fileStream);
+                    using (var fileStream = File.Create("python3_12\\get-pip.py"))
+                    {
+                        content.CopyTo(fileStream);
+                    }
                 }
             }
             catch
@@ -280,11 +284,11 @@ namespace mywebsite_nugetpackage
                                 string result = reader.ReadToEnd();
                                 if (result.Length != 0)
                                 {
-                                    Console.WriteLine("pip initialized.");
+                                    Console.WriteLine("pip downloaded.");
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Failed to initialize pip. Connect to the internet to initialize pip.");
+                                    Console.WriteLine("Failed to download pip. Connect to the internet to download pip.");
                                 }
                             }
                         }
