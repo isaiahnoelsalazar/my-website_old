@@ -29,6 +29,13 @@ namespace mywebsite_nugetpackage
                     Console.WriteLine("Failed to create Python 3.12 resources.");
                 }
             }
+            else
+            {
+                if (console)
+                {
+                    Console.WriteLine("Python 3.12 resources already created.");
+                }
+            }
             try
             {
                 using (File.OpenRead("python-3.12.9-embed-win32.zip"))
@@ -41,7 +48,6 @@ namespace mywebsite_nugetpackage
             }
             if (exist1)
             {
-                Directory.CreateDirectory("python3_12");
                 if (!Directory.Exists("python3_12\\python312"))
                 {
                     if (console)
@@ -50,6 +56,7 @@ namespace mywebsite_nugetpackage
                     }
                     try
                     {
+                        Directory.CreateDirectory("python3_12");
                         string zipPath = "python-3.12.9-embed-win32.zip";
                         string extractPath = "python3_12";
                         ZipFile.ExtractToDirectory(zipPath, extractPath);
@@ -70,7 +77,17 @@ namespace mywebsite_nugetpackage
                     }
                     catch
                     {
-                        Console.WriteLine("Failed to extract Python 3.12 resources.");
+                        if (console)
+                        {
+                            Console.WriteLine("Failed to extract Python 3.12 resources.");
+                        }
+                    }
+                }
+                else
+                {
+                    if (console)
+                    {
+                        Console.WriteLine("Python 3.12 resources already extracted.");
                     }
                 }
             }
@@ -88,6 +105,13 @@ namespace mywebsite_nugetpackage
                     using (var fileStream = File.Create("python3_12\\get-pip.py"))
                     {
                         content.CopyTo(fileStream);
+                    }
+                }
+                else
+                {
+                    if (console)
+                    {
+                        Console.WriteLine("get-pip already downloaded.");
                     }
                 }
             }
@@ -150,6 +174,13 @@ namespace mywebsite_nugetpackage
                     catch
                     {
                         Console.WriteLine("Failed to download pip.");
+                    }
+                }
+                else
+                {
+                    if (console)
+                    {
+                        Console.WriteLine("pip already downloaded.");
                     }
                 }
             }
@@ -175,6 +206,13 @@ namespace mywebsite_nugetpackage
                     Console.WriteLine("Failed to create Python 3.12 resources.");
                 }
             }
+            else
+            {
+                if (console)
+                {
+                    Console.WriteLine("Python 3.12 resources already created.");
+                }
+            }
             try
             {
                 using (File.OpenRead("python-3.12.9-embed-win32.zip"))
@@ -187,7 +225,6 @@ namespace mywebsite_nugetpackage
             }
             if (exist1)
             {
-                Directory.CreateDirectory("python3_12");
                 if (!Directory.Exists("python3_12\\python312"))
                 {
                     if (console)
@@ -196,6 +233,7 @@ namespace mywebsite_nugetpackage
                     }
                     try
                     {
+                        Directory.CreateDirectory("python3_12");
                         string zipPath = "python-3.12.9-embed-win32.zip";
                         string extractPath = "python3_12";
                         ZipFile.ExtractToDirectory(zipPath, extractPath);
@@ -216,7 +254,17 @@ namespace mywebsite_nugetpackage
                     }
                     catch
                     {
-                        Console.WriteLine("Failed to extract Python 3.12 resources.");
+                        if (console)
+                        {
+                            Console.WriteLine("Failed to extract Python 3.12 resources.");
+                        }
+                    }
+                }
+                else
+                {
+                    if (console)
+                    {
+                        Console.WriteLine("Python 3.12 resources already extracted.");
                     }
                 }
             }
@@ -234,6 +282,13 @@ namespace mywebsite_nugetpackage
                     using (var fileStream = File.Create("python3_12\\get-pip.py"))
                     {
                         content.CopyTo(fileStream);
+                    }
+                }
+                else
+                {
+                    if (console)
+                    {
+                        Console.WriteLine("get-pip already downloaded.");
                     }
                 }
             }
@@ -298,10 +353,17 @@ namespace mywebsite_nugetpackage
                         Console.WriteLine("Failed to download pip.");
                     }
                 }
+                else
+                {
+                    if (console)
+                    {
+                        Console.WriteLine("pip already downloaded.");
+                    }
+                }
             }
         }
 
-        public PyCS run(string script)
+        public void run(string script)
         {
             File.Create("python3_12\\main.py").Close();
             File.WriteAllText("python3_12\\main.py", script);
@@ -320,10 +382,9 @@ namespace mywebsite_nugetpackage
                     Console.WriteLine(result);
                 }
             }
-            return this;
         }
 
-        public PyCS runFile(string filePath)
+        public void runFile(string filePath)
         {
             ProcessStartInfo run0 = new ProcessStartInfo();
             run0.FileName = "python3_12\\python.exe";
@@ -339,7 +400,6 @@ namespace mywebsite_nugetpackage
                     Console.WriteLine(result);
                 }
             }
-            return this;
         }
     }
 }
