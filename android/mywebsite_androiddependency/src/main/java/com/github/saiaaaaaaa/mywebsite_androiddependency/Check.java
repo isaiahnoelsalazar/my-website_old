@@ -1,5 +1,11 @@
 package com.github.saiaaaaaaa.mywebsite_androiddependency;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+
+import androidx.appcompat.content.res.AppCompatResources;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -52,6 +58,11 @@ public class Check {
                 }
             }
         }
+    }
+
+    public static boolean equalDrawableAndBitmap(Context context, int resourceId, Bitmap bitmap){
+        BitmapDrawable drawable = (BitmapDrawable) AppCompatResources.getDrawable(context, resourceId);
+        return drawable.getBitmap().sameAs(bitmap);
     }
 
     public static boolean hasSymbols(String str){

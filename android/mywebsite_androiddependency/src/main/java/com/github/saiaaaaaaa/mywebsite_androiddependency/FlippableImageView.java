@@ -71,6 +71,14 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
         this.speed = speed.value;
     }
 
+    public Bitmap getFrontImage(){
+        return frontImage;
+    }
+
+    public Bitmap getBackImage(){
+        return backImage;
+    }
+
     public void setFrontImage(int resourceId){
         frontImage = ((BitmapDrawable) AppCompatResources.getDrawable(context, resourceId)).getBitmap();
     }
