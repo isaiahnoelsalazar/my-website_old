@@ -87,6 +87,16 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
         backImage = ((BitmapDrawable) drawable).getBitmap();
     }
 
+    public void instantFlip(){
+        if (!isFlipped){
+            isFlipped = true;
+            setRotationY(180);
+        } else {
+            isFlipped = false;
+            setRotationY(0);
+        }
+    }
+
     public void flip(){
         new Handler().post(new Runnable() {
             @Override
