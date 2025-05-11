@@ -40,10 +40,6 @@ body {
     background-color: white;
     color: var(--black);
 }
-.home_tab {
-    background-color: transparent;
-    color: white;
-}
 .unselected {
     background-color: var(--black);
     color: white;
@@ -54,7 +50,4 @@ body {
 }
 .content {
     display: none;
-}
-.content:first-child {
-    display: flex;
 }
