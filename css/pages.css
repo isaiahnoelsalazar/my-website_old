@@ -26,12 +26,10 @@
 #pagelist > a:hover {
     text-decoration: underline;
 }
-@media (max-width: 720px) {
+@media (max-width: 800px) {
     .content:nth-child(2) > h2 {
         width: calc(100% - 32px);
     }
-}
-@media (max-width: 600px) {
     #pagelist > a {
         width: calc(100% - 64px);
     }
