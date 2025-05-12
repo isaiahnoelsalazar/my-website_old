@@ -9,7 +9,7 @@
     display: flex;
     gap: 16px;
     justify-content: space-evenly;
-    padding: 16px 0;
+    padding: 128px 0;
     width: calc(100% - 32px);
 }
 #home-div-2 {
@@ -18,8 +18,8 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    padding: 32px 0;
-    width: calc(100% - 32px);
+    padding: 32px;
+    width: 720px;
 }
 #home-div-1 > img {
     border-radius: 50%;
@@ -32,6 +32,10 @@
 @media (max-width: 720px) {
     #home-div-1 {
         flex-direction: column-reverse;
+        width: calc(100% - 32px);
+    }
+    #home-div-2 {
+        padding: 32px 0;
         width: calc(100% - 32px);
     }
 }
