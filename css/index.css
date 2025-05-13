@@ -1,32 +1,46 @@
+html {
+    height: 100%;
+}
 body {
-    background-color: white;
     font-family: Righteous;
+    height: 100%;
     margin: 0;
 }
 #navbar {
+    background-color: var(--black);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
 }
-#navbar > p {
+.tab-container {
+    background-color: var(--light-blue);
+    border-radius: 16px;
+}
+.tab-container > p {
     margin: 0;
     text-align: center;
 }
 .tab {
     align-items: center;
     background-color: var(--black);
+    border-radius: 16px;
     color: white;
     cursor: pointer;
     display: flex;
+    height: 56px;
     justify-content: center;
-    padding: 16px 0;
 }
-.tab:hover {
-    background-color: white;
-    color: var(--black);
+.tab-container:first-child {
+    border-radius: 16px 16px 0 0;
+}
+.tab-container:nth-child(2) {
+    border-radius: 16px 16px 16px 0;
+}
+.tab-container:last-child {
+    border-radius: 16px;
 }
 .selected {
-    background-color: white;
+    background-color: var(--light-blue);
     color: var(--black);
 }
 .unselected {
@@ -36,7 +50,10 @@ body {
 #main {
     display: flex;
     flex-direction: column;
+    height: calc(100% - 56px);
 }
 .content {
+    background-color: var(--light-blue);
     display: none;
+    height: 100%;
 }

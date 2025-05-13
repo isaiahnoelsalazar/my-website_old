@@ -59,21 +59,27 @@
     </head>
     <body>
         <div id="navbar">
-            <p class="tab selected">Home</p>
-            <p class="tab">My Works</p>
-            <p class="tab">Contacts</p>
+            <a class="tab-container" onmouseenter="mouseEnter(0)" onmouseleave="mouseLeave(0)" onclick="mouseClick(0)">
+                <p class="tab selected">Home</p>
+            </a>
+            <a class="tab-container" onmouseenter="mouseEnter(1)" onmouseleave="mouseLeave(1)" onclick="mouseClick(1)">
+                <p class="tab">My Works</p>
+            </a>
+            <a class="tab-container" onmouseenter="mouseEnter(2)" onmouseleave="mouseLeave(2)" onclick="mouseClick(2)">
+                <p class="tab">Contacts</p>
+            </a>
         </div>
         <div id="main">
-            <div class="content">
+            <div class="home content">
                 <div id="home-div-1">
                     <h1>My name is Isaiah Noel P. Salazar</h1>
                     <img src="resources/profile_pic.jpg" alt="profile_picture">
                 </div>
                 <div id="home-div-2">
-                    <p>This is a personal website where I showcase my projects and share my thoughts. I hope you find something interesting!</p>
+                    <p>I am an IT student.</p>
                 </div>
             </div>
-            <div class="content">
+            <div class="pages content">
                 <h2>Live websites</h2>
                 <div id="pagelist">
                     <a href="https://saiaaaaaaa.github.io/bad-phone-number-inputs/">Bad Phone Number Inputs</a>
@@ -91,7 +97,7 @@
                     <a href="https://saiaaaaaaa.github.io/women-with-baskets/">Women with Baskets</a>
                 </div>
             </div>
-            <div class="content">
+            <div class="contact content">
                 <div id="contactlist">
                     <div>
                         <a href="https://www.facebook.com/profile.php?id=100085006483044">

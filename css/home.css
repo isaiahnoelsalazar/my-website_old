@@ -1,4 +1,4 @@
-.content:first-child {
+.home {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -9,12 +9,12 @@
     display: flex;
     gap: 16px;
     justify-content: space-evenly;
-    padding: 128px 0;
+    padding: 16px 0;
     width: calc(100% - 32px);
 }
 #home-div-2 {
     align-items: center;
-    background-color: var(--gray);
+    background-color: var(--blue-gray);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
