@@ -1,13 +1,6 @@
 :root {
-    --primary-color: #4088C7;
-    --secondary-color: #0077FF;
-    --tertiary-color: #3155BB;
-    --quaternary-color: #00507A;
-    --quinary-color: #00324D;
+    --primary-color: #EEF5FC;
+    --secondary-color: #C7D6E2;
+    --tertiary-color: #4088C7;
     --black: #1F1F1F;
-    --blue-gray: #C7D6E2;
-    --dark: #555555;
-    --gray: #DDDDDD;
-    --light-blue: #EEF5FC;
-    --light-gray: #EEEEEE;
 }
