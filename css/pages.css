@@ -4,6 +4,7 @@
     padding: 16px 0;
 }
 .pages > h2 {
+    margin: 0;
     width: 720px;
 }
 #pagelist {
