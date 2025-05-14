@@ -1,6 +1,7 @@
 html {
     background-color: var(--primary-color);
     height: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 body {
     background-color: var(--primary-color);
