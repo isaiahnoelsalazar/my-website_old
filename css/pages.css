@@ -4,7 +4,7 @@
     padding: 16px 0;
 }
 #pages-div-1 {
-    padding: 16px 0;
+    padding: 8px 0;
 }
 #pages-div-1 > h2 {
     margin: 0;
@@ -30,7 +30,7 @@
     text-decoration: underline;
 }
 @media (max-width: 800px) {
-    #pages-div-1 > h2 {
+    #pages-div-1, #pages-div-1 > h2 {
         width: calc(100% - 32px);
     }
     #page-list > a {
