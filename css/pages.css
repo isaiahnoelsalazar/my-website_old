@@ -1,13 +1,16 @@
 .pages {
     align-items: center;
     flex-direction: column;
-    padding: 24px 0 16px 0;
+    padding: 16px 0;
 }
-.pages > h2 {
+#pages-div-1 {
+    padding: 16px 0;
+}
+#pages-div-1 > h2 {
     margin: 0;
     width: 720px;
 }
-#pagelist {
+#page-list {
     align-items: center;
     cursor: pointer;
     display: flex;
@@ -16,21 +19,21 @@
     width: 100%;
     -webkit-tap-highlight-color: transparent;
 }
-#pagelist > a {
+#page-list > a {
     color: var(--black);
     font-size: larger;
     padding: 8px;
     text-decoration: none;
     width: 600px;
 }
-#pagelist > a:hover {
+#page-list > a:hover {
     text-decoration: underline;
 }
 @media (max-width: 800px) {
-    .pages > h2 {
+    #pages-div-1 > h2 {
         width: calc(100% - 32px);
     }
-    #pagelist > a {
+    #page-list > a {
         width: calc(100% - 64px);
     }
 }

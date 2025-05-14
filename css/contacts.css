@@ -1,10 +1,10 @@
-.contact {
-    justify-content: center;
+.contacts {
+    align-items: center;
+    flex-direction: column;
     padding: 16px 0;
 }
-#contactlist {
+#contacts-div-1 {
     align-items: center;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -12,14 +12,14 @@
     width: 600px;
     -webkit-tap-highlight-color: transparent;
 }
-#contactlist > div {
+#contacts-div-1 > div {
     align-items: center;
     display: flex;
     gap: 16px;
     justify-content: center;
     width: 100%;
 }
-#contactlist > div > a {
+#contacts-div-1 > div > a {
     align-items: center;
     border-radius: 8px;
     display: flex;
@@ -27,18 +27,18 @@
     justify-content: center;
     width: 80px;
 }
-#contactlist > div > a > img {
+#contacts-div-1 > div > a > img {
     height: 64px;
     width: 64px;
 }
-#contactlist > div > a:last-child > img {
+#contacts-div-1 > div > a:last-child > img {
     height: 80px;
     width: 80px;
 }
-#contactlist > div > a:hover {
+#contacts-div-1 > div > a:hover {
     background-color: var(--secondary-color);
 }
-#contactlist > a {
+#contacts-div-1 > a {
     align-items: center;
     background-color: var(--secondary-color);
     border-radius: 8px;
@@ -49,14 +49,14 @@
     padding: 16px;
     text-decoration: none;
 }
-#contactlist > a:hover {
+#contacts-div-1 > a:hover {
     text-decoration: underline;
 }
-#contactlist > a > p {
+#contacts-div-1 > a > p {
     margin: 0;
 }
 @media (max-width: 600px) {
-    #contactlist {
+    #contacts-div-1 {
         width: 100%;
     }
 }
