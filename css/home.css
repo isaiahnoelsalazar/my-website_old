@@ -72,6 +72,9 @@
     #home-div-1 > div > div > h1, #home-div-1 > div > div > p {
         text-align: center;
     }
+    #home-div-1 > div > div > div {
+        justify-content: center;
+    }
 }
 @media (max-width: 360px) {
     #home-div-1 > div > img {
