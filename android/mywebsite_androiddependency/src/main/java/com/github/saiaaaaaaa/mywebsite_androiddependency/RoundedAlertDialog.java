@@ -59,6 +59,22 @@ public class RoundedAlertDialog {
         return this;
     }
 
+    public RoundedAlertDialog setupRightButton(String text, int color){
+        rightButton = dialogView.findViewById(R.id.rounded_alert_dialog_right_button);
+        rightButton.setText(text);
+        rightButton.setTextColor(color);
+        rightButton.setVisibility(View.VISIBLE);
+        return this;
+    }
+
+    public RoundedAlertDialog setupLeftButton(String text, int color){
+        leftButton = dialogView.findViewById(R.id.rounded_alert_dialog_left_button);
+        leftButton.setText(text);
+        leftButton.setTextColor(color);
+        leftButton.setVisibility(View.VISIBLE);
+        return this;
+    }
+
     public RoundedAlertDialog setupLeftButtonOnClick(View.OnClickListener onClickListener){
         leftButton.setOnClickListener(onClickListener);
         return this;
