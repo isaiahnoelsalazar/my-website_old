@@ -33,19 +33,43 @@ class EasySQL:
         connection.cursor().execute(sql_query)
         connection.commit()
 
+    def deleteFromTable(self, dbname: str, table_name: str, columnValuePair: dict):
+        connection = sqlite3.connect(dbname + ".db")
+        sql_query = "DELETE FROM " + table_name + " WHERE " + list(columnValuePair.items())[0][0] + "='" + list(columnValuePair.items())[0][1] + "'"
+        connection.cursor().execute(sql_query)
+        connection.commit()
+
+    def deleteTable(self, dbname: str, table_name: str):
+        connection = sqlite3.connect(dbname + ".db")
+        sql_query = "DROP TABLE " + table_name
+        connection.cursor().execute(sql_query)
+        connection.commit()
+
 '''
 How to use:
-from easy_sql import EasySQL # Import the class
+# Import the class
+from easy_sql import EasySQL
 
-a = EasySQL() # Create an instance of the class
+# Create an instance of the class
+a = EasySQL()
 
-columns = [{"fname": "text"}, {"lname": "text"}] # Define the columns for the table
+# Define the columns for the table
+columns = [{"fname": "text"}, {"lname": "text"}]
 
-a.createTable("sample", "sampletable", columns) # Create specified table
+# Create specified table
+a.createTable("sample", "sampletable", columns)
 
-values = [{"fname": "Isaiah"}, {"lname": "Salazar"}] # Define the values to be inserted
+# Define the values to be inserted
+values = [{"fname": "Isaiah"}, {"lname": "Salazar"}]
+values1 = [{"fname": "Saia"}, {"lname": "Razalas"}]
 
-a.insertToTable("sample", "sampletable", values) # Insert the values into specified table
+# Insert the values into specified table
+a.insertToTable("sample", "sampletable", values)
+a.insertToTable("sample", "sampletable", values1)
 
-print(a.getTableValues("sample", "sampletable")) # Print the values in specified table
+# Print the values in specified table
+print(a.getTableValues("sample", "sampletable"))
+
+# Delete a column-value pair from a specified table
+a.deleteFromTable("sample", "sampletable", {"fname": "Saia"})
 '''
