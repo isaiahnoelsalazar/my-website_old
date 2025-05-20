@@ -152,4 +152,31 @@ public class EasySQL {
         }
         return temp;
     }
+
+    public List<String[]> getTableValuesAsArray(String databaseName, String tableName){
+        List<String[]> temp = new ArrayList<>();
+        try {
+            SQLiteDatabase db = database(databaseName);
+            if (doesTableExist(databaseName, tableName)){
+                Cursor cursor = db.rawQuery("SELECT * FROM " + tableName, null);
+                while (cursor.moveToNext()){
+                    String[] raw = new String[cursor.getColumnCount()];
+                    for (int a = 0; a < cursor.getColumnCount(); a++){
+                        int columnType = cursor.getType(a);
+                        if (columnType == Cursor.FIELD_TYPE_INTEGER || columnType == Cursor.FIELD_TYPE_FLOAT){
+                            raw[a] = cursor.getColumnName(a) + ":" + cursor.getString(a);
+                        } else {
+                            raw[a] = cursor.getColumnName(a) + ":'" + cursor.getString(a) + "'";
+                        }
+                    }
+                    temp.add(raw);
+                }
+                cursor.close();
+            }
+            db.close();
+        } catch (Exception exception){
+            exception.printStackTrace();
+        }
+        return temp;
+    }
 }
