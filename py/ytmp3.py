@@ -1,4 +1,4 @@
-yt = YouTube(url.split("=")[1])
+yt = YouTube("https://www.youtube.com/watch?v=" + url)
 
 audio = yt.streams.filter(only_audio=True).first()
 audio.download()

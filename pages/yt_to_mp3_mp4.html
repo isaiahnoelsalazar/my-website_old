@@ -28,7 +28,7 @@
     <body>
         <h1>Download YouTube Audio</h1>
         <form id="downloadForm">
-            <label for="url">Enter YouTube URL:</label><br>
+            <label for="url">Enter YouTube URL ID (Example in red text: https://www.youtube.com/watch?v=<span style="color: red;">LocruwYJrGw</span>):</label><br>
             <input type="text" id="url" name="url" size="50"><br><br>
             <button type="submit">Download Audio</button>
         </form>
@@ -45,7 +45,7 @@
 
             statusDiv.textContent = "Downloading...";
 
-            fetch('https://sasasaia.pythonanywhere.com/ytmp3/to_download=' + youtubeUrl, {
+            fetch('https://sasasaia.pythonanywhere.com/ytmp3/' + youtubeUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
