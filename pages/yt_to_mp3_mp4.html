@@ -46,11 +46,10 @@
             statusDiv.textContent = "Downloading...";
 
             fetch('https://sasasaia.pythonanywhere.com/ytmp3/' + youtubeUrl, {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: 'url=' + encodeURIComponent(youtubeUrl)
             })
             .then(response => {
                 if (response.ok) {
