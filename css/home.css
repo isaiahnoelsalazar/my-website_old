@@ -46,7 +46,6 @@
 }
 #home-div-2 > div > div > img {
     border-radius: 8px;
-    justify-self: center;
     width: 100%;
 }
 #home-div-2 > div > div > a {
@@ -128,6 +127,7 @@
     }
     #home-div-2 > div > div {
         align-items: stretch;
+        justify-content: center;
     }
     #home-div-2 > div > div > a {
         text-align: center;
