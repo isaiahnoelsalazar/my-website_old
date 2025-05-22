@@ -45,8 +45,8 @@
     padding: 16px 16px 0 16px;
 }
 #home-div-2 > div > div > img {
-    align-self: center;
     border-radius: 8px;
+    justify-self: center;
     width: 100%;
 }
 #home-div-2 > div > div > a {
