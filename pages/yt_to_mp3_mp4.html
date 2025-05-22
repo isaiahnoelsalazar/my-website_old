@@ -28,7 +28,7 @@
     <body>
         <h1>Download YouTube Audio</h1>
         <form id="downloadForm">
-            <label for="url">Enter YouTube URL ID (Example in red text: https://www.youtube.com/watch?v=<span style="color: red;">LocruwYJrGw</span>):</label><br>
+            <label for="url">Enter YouTube URL View ID (Example in red text: https://www.youtube.com/watch?v=<span style="color: red;">LocruwYJrGw</span>):</label><br>
             <input type="text" id="url" name="url" size="50"><br><br>
             <button type="submit">Download Audio</button>
         </form>
@@ -45,11 +45,12 @@
 
             statusDiv.textContent = "Downloading...";
 
-            fetch('https://sasasaia.pythonanywhere.com/ytmp3/' + youtubeUrl, {
-                method: 'GET',
+            fetch("https://sasasaia.pythonanywhere.com/ytmp3?url=" + youtubeUrl, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
+                body: "url=" + encodeURIComponent(youtubeUrl)
             })
             .then(response => {
                 if (response.ok) {
@@ -70,8 +71,8 @@
 
                 document.body.appendChild(a);
                 a.click();
-                a.remove();
-                window.URL.revokeObjectURL(downloadUrl);
+                //a.remove();
+                //window.URL.revokeObjectURL(downloadUrl);
                 statusDiv.textContent = "Download started!";
             })
             .catch(error => {
