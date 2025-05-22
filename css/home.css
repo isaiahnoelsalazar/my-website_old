@@ -152,7 +152,7 @@
         justify-content: center;
     }
 }
-@media (max-width: 360px) {
+@media (max-width: 392px) {
     #home-div-1 > div > img {
         width: calc(100% - 32px);
     }
