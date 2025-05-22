@@ -1,8 +1,13 @@
+result = None
+
 if 'file' not in request.files:
-    return redirect(request.url) # No file part
+    result = redirect(request.url) # No file part
+
 file = request.files['file']
+
 if file.filename == '':
-    return redirect(request.url) # No selected file
+    result = redirect(request.url) # No selected file
+
 if file and allowed_file(file.filename):
     # Secure the filename and save the uploaded DOCX
     filename = secure_filename(file.filename)
@@ -17,8 +22,8 @@ if file and allowed_file(file.filename):
     # Convert the DOCX to PDF
     if convert_to_pdf(docx_path, pdf_path):
         # If conversion is successful, offer the PDF for download
-        return send_file(pdf_path, as_attachment=True, download_name=pdf_filename)
+        result = send_file(pdf_path, as_attachment=True, download_name=pdf_filename)
     else:
-        return "<h1>Error: DOCX to PDF conversion failed.</h1><p>Please check server logs for more details.</p>"
+        result = "<h1>Error: DOCX to PDF conversion failed.</h1><p>Please check server logs for more details.</p>"
 else:
-    return "<h1>Error: Invalid file type. Only .docx files are allowed.</h1>"
+    result = "<h1>Error: Invalid file type. Only .docx files are allowed.</h1>"
