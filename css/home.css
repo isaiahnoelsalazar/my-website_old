@@ -45,6 +45,7 @@
     padding: 16px 16px 0 16px;
 }
 #home-div-2 > div > div > img {
+    align-self: center;
     border-radius: 8px;
     width: 100%;
 }
@@ -127,6 +128,9 @@
     }
     #home-div-2 > div > div {
         align-items: stretch;
+    }
+    #home-div-2 > div > div > a {
+        text-align: center;
     }
 }
 @media (max-width: 720px) {
