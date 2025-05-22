@@ -1,23 +1,23 @@
 result = None
 
-if 'file' not in request.files:
+if "file" not in request.files:
     result = redirect(request.url) # No file part
 
-file = request.files['file']
+file = request.files["file"]
 
-if file.filename == '':
+if file.filename == "":
     result = redirect(request.url) # No selected file
 
 if file and allowed_file(file.filename):
     # Secure the filename and save the uploaded DOCX
     filename = secure_filename(file.filename)
     unique_filename = str(uuid.uuid4()) + "_" + filename
-    docx_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+    docx_path = app.config["UPLOAD_FOLDER"] + "/" + unique_filename
     file.save(docx_path)
 
     # Generate a unique name for the output PDF
-    pdf_filename = os.path.splitext(unique_filename)[0] + ".pdf"
-    pdf_path = os.path.join(app.config['CONVERTED_FOLDER'], pdf_filename)
+    pdf_filename = unique_filename + ".pdf"
+    pdf_path = app.config["CONVERTED_FOLDER"] + "/" + pdf_filename
 
     # Convert the DOCX to PDF
     if convert_to_pdf(docx_path, pdf_path):
@@ -26,4 +26,4 @@ if file and allowed_file(file.filename):
     else:
         result = "<h1>Error: DOCX to PDF conversion failed.</h1><p>Please check server logs for more details.</p>"
 else:
-    result = "<h1>Error: Invalid file type. Only .docx files are allowed.</h1>"
+    result = "<h1>Error: Invalid file type. Only *.doc or *.docx files are allowed.</h1>"
