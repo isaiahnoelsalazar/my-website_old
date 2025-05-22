@@ -121,6 +121,11 @@
     border: solid var(--quaternary-color) 2px;
     color: white;
 }
+@media (max-width: 752px) {
+    #home-div-2 {
+        width: calc(100% - 32px);
+    }
+}
 @media (max-width: 720px) {
     #home-div-1 {
         flex-direction: column-reverse;
