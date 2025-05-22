@@ -23,7 +23,9 @@ if file and allowed_file(file.filename):
     if convert_to_pdf(docx_path, pdf_path):
         # If conversion is successful, offer the PDF for download
         result = send_file("/home/sasasaia/" + app.config["CONVERTED_FOLDER"] + "/" + pdf_filename, as_attachment=True, download_name=pdf_filename)
+        os.remove(docx_path)
+        os.remove("/home/sasasaia/" + app.config["CONVERTED_FOLDER"] + "/" + pdf_filename)
     else:
-        result = "<h1>Error: DOCX to PDF conversion failed.</h1><p>Please check server logs for more details.</p>"
+        result = "<h1>Error: DOC to PDF conversion failed.</h1><p>Please check server logs for more details.</p>"
 else:
     result = "<h1>Error: Invalid file type. Only *.doc or *.docx files are allowed.</h1>"
