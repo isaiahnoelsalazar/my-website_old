@@ -1,27 +1,23 @@
 result = None
 
 if "file" not in request.files:
-    result = redirect(request.url) # No file part
+    result = redirect(request.url)
 
 file = request.files["file"]
 
 if file.filename == "":
-    result = redirect(request.url) # No selected file
+    result = redirect(request.url)
 
 if file and allowed_file(file.filename):
-    # Secure the filename and save the uploaded DOCX
     filename = secure_filename(file.filename)
-    unique_filename = str(uuid.uuid4()) + "_" + filename
-    docx_path = os.path.join(app.config["UPLOAD_FOLDER"], unique_filename)
+    # unique_filename = str(uuid.uuid4()) + "_" + filename
+    docx_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
     file.save(docx_path)
 
-    # Generate a unique name for the output PDF
-    pdf_filename = os.path.splitext(unique_filename)[0] + ".pdf"
+    pdf_filename = os.path.splitext(filename)[0] + ".pdf"
     pdf_path = os.path.join(app.config["CONVERTED_FOLDER"], pdf_filename)
 
-    # Convert the DOCX to PDF
     if convert_to_pdf(docx_path, pdf_path):
-        # If conversion is successful, offer the PDF for download
         result = send_file("/home/sasasaia/" + app.config["CONVERTED_FOLDER"] + "/" + pdf_filename, as_attachment=True, download_name=pdf_filename)
         os.remove(docx_path)
         os.remove("/home/sasasaia/" + app.config["CONVERTED_FOLDER"] + "/" + pdf_filename)
