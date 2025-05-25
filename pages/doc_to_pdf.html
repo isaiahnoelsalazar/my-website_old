@@ -24,6 +24,9 @@
         <meta name="msapplication-TileColor" content="#4088C7">
         <meta name="msapplication-TileImage" content="../resources/icon/ms-icon-144x144.png">
         <title>DOC to PDF</title>
+        <link rel="stylesheet" href="../css/colors.css">
+        <link rel="stylesheet" href="../css/fonts.css">
+        <link rel="stylesheet" href="../css/doc_to_pdf.css">
     </head>
     <body>
         <div class="container">
@@ -32,9 +35,10 @@
                 <label for="file-upload" class="custom-file-upload">
                     Choose DOC File
                 </label>
-                <input id="file-upload" type="file" name="file" accept=".docx">
+                <input id="file-upload" type="file" name="file" accept=".doc, .docx" onchange="updateLabel(this)">
                 <button type="submit">Convert and Download</button>
             </form>
         </div>
     </body>
+    <script src="../js/doc_to_pdf.js"></script>
 </html>
