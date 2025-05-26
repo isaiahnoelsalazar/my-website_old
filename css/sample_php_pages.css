@@ -70,6 +70,7 @@ body {
     padding: 8px;
     text-align: center;
     text-decoration: none;
+    width: 100%;
 }
 #page-list > a:hover {
     text-decoration: underline;

@@ -1,3 +1,6 @@
+<?php
+$message = "This is the homepage. This message exists because GitHub doesn't recognize PHP without the tag. It defaults to Hack, which is similar to PHP.";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
