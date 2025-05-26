@@ -52,15 +52,11 @@ body {
     flex-direction: column;
     padding: 16px 0;
 }
-#pages-div-1 {
-    padding: 8px 0;
-}
 #page-list {
     align-items: center;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    margin: 8px 8px 0 8px;
     width: 100%;
     -webkit-tap-highlight-color: transparent;
 }
