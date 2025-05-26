@@ -2,7 +2,7 @@ def allowed_file(filename):
     return "." in filename and \
            filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS_1
 
-def convert_to_doc(input_pdf_path, output_docx_path):
+def convert_to_pdf(input_pdf_path, output_docx_path):
     try:
         pdf_file = input_pdf_path
         docx_file = output_docx_path
