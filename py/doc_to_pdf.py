@@ -1,3 +1,31 @@
+def allowed_file(filename):
+    return "." in filename and \
+           filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def convert_to_pdf(input_docx_path, output_pdf_path):
+    command = [
+        "soffice",
+        "--headless",
+        "--convert-to", "pdf",
+        "--outdir", os.path.dirname(output_pdf_path),
+        input_docx_path
+    ]
+    try:
+        result = subprocess.run(command, check=True, capture_output=True, text=True)
+        print(f"Successfully converted {input_docx_path} to {output_pdf_path}")
+        print("soffice stdout:", result.stdout)
+        print("soffice stderr:", result.stderr)
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"Error converting {input_docx_path} to {output_pdf_path}: {e}")
+        print("soffice stdout on error:", e.stdout)
+        print("soffice stderr on error:", e.stderr)
+        return False
+    except FileNotFoundError:
+        print("Error: 'soffice' command not found. Please ensure LibreOffice/OpenOffice is installed and in your system's PATH.")
+        return False
+
+
 result = None
 
 if "file" not in request.files:
