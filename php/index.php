@@ -9,7 +9,7 @@ $message = "This is the homepage. This message exists because GitHub doesn't rec
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#4CAF50">
+        <meta name="theme-color" content="#1F1F1F">
         <link rel="apple-touch-icon" sizes="57x57" href="https://saiaaaaaaa.github.io/my-website/resources/icon/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://saiaaaaaaa.github.io/my-website/resources/icon/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="https://saiaaaaaaa.github.io/my-website/resources/icon/apple-icon-72x72.png">
@@ -24,7 +24,7 @@ $message = "This is the homepage. This message exists because GitHub doesn't rec
         <link rel="icon" type="image/png" sizes="96x96" href="https://saiaaaaaaa.github.io/my-website/resources/icon/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="https://saiaaaaaaa.github.io/my-website/resources/icon/favicon-16x16.png">
         <link rel="manifest" href="https://saiaaaaaaa.github.io/my-website/resources/icon/manifest.json">
-        <meta name="msapplication-TileColor" content="#4CAF50">
+        <meta name="msapplication-TileColor" content="#1F1F1F">
         <meta name="msapplication-TileImage" content="https://saiaaaaaaa.github.io/my-website/resources/icon/ms-icon-144x144.png">
         <title>Sample PHP Pages</title>
         <!--this works only in Chrome i think -->
