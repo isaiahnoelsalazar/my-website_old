@@ -24,10 +24,10 @@ body {
     background-color: var(--black);
     border-radius: 16px;
     color: white;
-    cursor: pointer;
     display: flex;
     height: 56px;
     justify-content: center;
+    margin: 0;
 }
 .selected {
     background-color: var(--primary-color);
@@ -55,10 +55,6 @@ body {
 #pages-div-1 {
     padding: 8px 0;
 }
-#pages-div-1 > h2 {
-    margin: 0;
-    width: 720px;
-}
 #page-list {
     align-items: center;
     cursor: pointer;
@@ -72,17 +68,9 @@ body {
     color: var(--black);
     font-size: larger;
     padding: 8px;
+    text-align: center;
     text-decoration: none;
-    width: 600px;
 }
 #page-list > a:hover {
     text-decoration: underline;
-}
-@media (max-width: 800px) {
-    #pages-div-1, #pages-div-1 > h2 {
-        width: calc(100% - 32px);
-    }
-    #page-list > a {
-        width: calc(100% - 64px);
-    }
 }
