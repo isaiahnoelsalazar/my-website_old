@@ -39,14 +39,11 @@
         </script>
         <link rel="stylesheet" href="https://saiaaaaaaa.github.io/my-website/css/colors.css">
         <link rel="stylesheet" href="https://saiaaaaaaa.github.io/my-website/css/fonts.css">
-        <link rel="stylesheet" href="https://saiaaaaaaa.github.io/my-website/css/index.css">
-        <link rel="stylesheet" href="https://saiaaaaaaa.github.io/my-website/css/pages.css">
+        <link rel="stylesheet" href="https://saiaaaaaaa.github.io/my-website/css/sample_php_pages.css">
     </head>
     <body>
         <div id="navbar">
-            <a class="tab-container">
-                <p class="tab">Sample PHP Pages</p>
-            </a>
+            <p class="tab">Sample PHP Pages</p>
         </div>
         <div id="main">
             <div class="pages content">
