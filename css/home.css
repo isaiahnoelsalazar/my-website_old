@@ -53,6 +53,12 @@
     border-radius: 8px;
     width: 100%;
 }
+#home-div-2 > div:last-child > div > img {
+    background-color: white;
+    border-radius: 8px;
+    padding: 64px;
+    width: 100%;
+}
 #home-div-2 > div > div > a {
     background-color: var(--tertiary-color);
     border: solid var(--tertiary-color) 2px;
