@@ -41,8 +41,13 @@
     width: 100%;
 }
 #home-div-2 > div > div > h2, #home-div-2 > div > div > p {
+    hyphens: auto;
     margin: 0;
+    overflow-wrap: break-word;
     padding: 16px 16px 0 16px;
+    width: 100%;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
 }
 #home-div-2 > div > div > img {
     border-radius: 8px;
