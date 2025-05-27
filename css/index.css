@@ -64,3 +64,35 @@ body {
     display: none;
     height: 100%;
 }
+.footer {
+    background-color: var(--black);
+    width: 100%;
+}
+.footer > p {
+    align-items: center;
+    color: white;
+    display: flex;
+    height: 56px;
+    justify-content: center;
+    margin: 0;
+}
+.sub-footer {
+    background-color: var(--black);
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+.sub-footer > p {
+    align-items: center;
+    color: white;
+    display: flex;
+    height: 56px;
+    justify-content: center;
+    margin: 0;
+}
+@media (max-width: 800px) {
+    .sub-footer {
+        bottom: unset;
+        position: unset;
+    }
+}
