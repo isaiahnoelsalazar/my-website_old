@@ -36,7 +36,7 @@
     flex-direction: column;
     width: 50%;
 }
-#home-div-2 > div > h2 {
+#home-div-2 > div > h2, #home-div-2 > div > p {
     text-align: center;
     width: 100%;
 }
