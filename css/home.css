@@ -21,7 +21,7 @@
     flex-direction: column;
     gap: 16px;
     padding: 16px;
-    width: 720px;
+    width: 50%;
 }
 #home-div-2 > div {
     display: flex;
@@ -50,6 +50,7 @@
     -moz-hyphens: auto;
 }
 #home-div-2 > div > div > img {
+    align-self: center;
     border-radius: 8px;
     width: 100%;
 }

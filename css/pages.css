@@ -8,32 +8,36 @@
 }
 #pages-div-1 > h2 {
     margin: 0;
+    text-align: center;
     width: 720px;
 }
-#page-list {
+.page-list {
     align-items: center;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    margin: 8px 8px 0 8px;
+    margin: 8px 0 0 0;
     width: 100%;
     -webkit-tap-highlight-color: transparent;
 }
-#page-list > a {
+.page-list > a {
     color: var(--black);
     font-size: larger;
     padding: 8px;
     text-decoration: none;
     width: 600px;
 }
-#page-list > a:hover {
+.page-list > a:hover {
     text-decoration: underline;
 }
 @media (max-width: 800px) {
     #pages-div-1, #pages-div-1 > h2 {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         width: calc(100% - 32px);
     }
-    #page-list > a {
-        width: calc(100% - 64px);
+    .page-list > a {
+        width: 100%;
     }
 }

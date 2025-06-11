@@ -44,7 +44,7 @@
     border-radius: 8px;
     color: var(--black);
     display: flex;
-    gap: 16px;
+    gap: 8px;
     justify-content: center;
     padding: 16px;
     text-decoration: none;
@@ -57,6 +57,9 @@
 }
 @media (max-width: 600px) {
     #contacts-div-1 {
+        width: calc(100% - 32px);
+    }
+    #contacts-div-1 > a {
         width: 100%;
     }
 }
