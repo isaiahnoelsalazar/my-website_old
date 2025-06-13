@@ -2,6 +2,7 @@ package com.github.saiaaaaaaa.mywebsite_androiddependency;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -15,7 +16,7 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
 
     Context context;
     int rotation = 0;
-    boolean isFlipped = false;
+    boolean isFlipped = false, reverseBackImage = false;
     Bitmap frontImage, backImage;
     int speed;
 
@@ -67,6 +68,48 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
         this.speed = speed.value;
     }
 
+    public FlippableImageView(@NonNull Context context, boolean reverseBackImage) {
+        super(context);
+        this.context = context;
+        speed = Speed.NORMAL.value;
+        this.reverseBackImage = reverseBackImage;
+    }
+
+    public FlippableImageView(@NonNull Context context, boolean reverseBackImage, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        this.context = context;
+        speed = Speed.NORMAL.value;
+        this.reverseBackImage = reverseBackImage;
+    }
+
+    public FlippableImageView(@NonNull Context context, boolean reverseBackImage, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        this.context = context;
+        speed = Speed.NORMAL.value;
+        this.reverseBackImage = reverseBackImage;
+    }
+
+    public FlippableImageView(@NonNull Context context, boolean reverseBackImage, Speed speed) {
+        super(context);
+        this.context = context;
+        this.speed = speed.value;
+        this.reverseBackImage = reverseBackImage;
+    }
+
+    public FlippableImageView(@NonNull Context context, boolean reverseBackImage, Speed speed, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        this.context = context;
+        this.speed = speed.value;
+        this.reverseBackImage = reverseBackImage;
+    }
+
+    public FlippableImageView(@NonNull Context context, boolean reverseBackImage, Speed speed, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        this.context = context;
+        this.speed = speed.value;
+        this.reverseBackImage = reverseBackImage;
+    }
+
     public void setSpeed(Speed speed){
         this.speed = speed.value;
     }
@@ -79,6 +122,10 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
         return backImage;
     }
 
+    public void setReverseBackImage(boolean reverseBackImage){
+        this.reverseBackImage = reverseBackImage;
+    }
+
     public void setFrontImage(int resourceId){
         frontImage = ((BitmapDrawable) AppCompatResources.getDrawable(context, resourceId)).getBitmap();
     }
@@ -88,11 +135,25 @@ public class FlippableImageView extends androidx.appcompat.widget.AppCompatImage
     }
 
     public void setBackImage(int resourceId){
-        backImage = ((BitmapDrawable) AppCompatResources.getDrawable(context, resourceId)).getBitmap();
+        if (reverseBackImage){
+            Bitmap temp = ((BitmapDrawable) AppCompatResources.getDrawable(context, resourceId)).getBitmap();
+            Matrix matrix = new Matrix();
+            matrix.postScale(-1, 1, temp.getWidth() / 2, temp.getHeight() / 2);
+            backImage = Bitmap.createBitmap(temp, 0, 0, temp.getWidth(), temp.getHeight(), matrix, true);
+        } else {
+            backImage = ((BitmapDrawable) AppCompatResources.getDrawable(context, resourceId)).getBitmap();
+        }
     }
 
     public void setBackImage(Drawable drawable){
-        backImage = ((BitmapDrawable) drawable).getBitmap();
+        if (reverseBackImage){
+            Bitmap temp = ((BitmapDrawable) drawable).getBitmap();
+            Matrix matrix = new Matrix();
+            matrix.postScale(-1, 1, temp.getWidth() / 2, temp.getHeight() / 2);
+            backImage = Bitmap.createBitmap(temp, 0, 0, temp.getWidth(), temp.getHeight(), matrix, true);
+        } else {
+            backImage = ((BitmapDrawable) drawable).getBitmap();
+        }
     }
 
     public void instantFlip(){
