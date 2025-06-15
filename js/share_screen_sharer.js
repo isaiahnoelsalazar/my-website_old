@@ -45,7 +45,7 @@ startBtn.onclick = async () => {
         startBtn.style.display = 'none';
     } catch (err) {
         console.error(err);
-        statusEl.textContent = `Error: ${err.message}`;
+        statusEl.textContent = `Error: ${err.message}\n${err.reason}`;
         startBtn.disabled = false;
     }
 };
