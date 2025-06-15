@@ -8,7 +8,7 @@ startBtn.onclick = async () => {
         statusEl.textContent = 'Requesting screen access...';
 
         // 1. Get screen media
-        const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         
         // 2. Create Peer Connection
         const pc = new RTCPeerConnection();
@@ -45,7 +45,7 @@ startBtn.onclick = async () => {
         startBtn.style.display = 'none';
     } catch (err) {
         console.error(err);
-        statusEl.textContent = `Error: ${err.message}\n${err.reason}`;
+        statusEl.textContent = `Error: ${err.message}`;
         startBtn.disabled = false;
     }
 };
