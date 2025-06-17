@@ -10,8 +10,15 @@ namespace mywebsite_nugetpackage
     {
         bool console = true, exist1 = false, exist2 = false, exist3 = false;
 
+        void AllowTLS12()
+        {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+        }
+
         public PyCS()
         {
+            AllowTLS12();
             if (!File.Exists("python-3.12.9-embed-win32.zip"))
             {
                 if (console)
@@ -141,7 +148,8 @@ namespace mywebsite_nugetpackage
             }
             if (exist2 && exist3)
             {
-                if (!Directory.Exists("python3_12\\Lib") || !Directory.Exists("python3_12\\Scripts"))
+                if (!Directory.Exists("python3_12\\Lib") || !Directory.Exists("python3_12\\Scripts") ||
+                    !File.Exists("python3_12\\Scripts\\pip.exe") || !File.Exists("python3_12\\Scripts\\pip3.12.exe") || !File.Exists("python3_12\\Scripts\\pip3.exe"))
                 {
                     if (console)
                     {
@@ -188,6 +196,7 @@ namespace mywebsite_nugetpackage
 
         public PyCS(bool console)
         {
+            AllowTLS12();
             this.console = console;
             if (!File.Exists("python-3.12.9-embed-win32.zip"))
             {
@@ -318,7 +327,8 @@ namespace mywebsite_nugetpackage
             }
             if (exist2 && exist3)
             {
-                if (!Directory.Exists("python3_12\\Lib") || !Directory.Exists("python3_12\\Scripts"))
+                if (!Directory.Exists("python3_12\\Lib") || !Directory.Exists("python3_12\\Scripts") ||
+                    !File.Exists("python3_12\\Scripts\\pip.exe") || !File.Exists("python3_12\\Scripts\\pip3.12.exe") || !File.Exists("python3_12\\Scripts\\pip3.exe"))
                 {
                     if (console)
                     {
