@@ -34,7 +34,8 @@ $message = "This is the homepage. This message exists because GitHub doesn't rec
                     {
                         "urls": [
                             "http://openweb.fwh.is/sample1.php",
-                            "http://openweb.fwh.is/sample2.php"
+                            "http://openweb.fwh.is/sample2.php",
+                            "http://openweb.fwh.is/sample3.php"
                         ]
                     }
                 ]
@@ -54,6 +55,7 @@ $message = "This is the homepage. This message exists because GitHub doesn't rec
                     <div id="page-list">
                         <a href="http://openweb.fwh.is/sample1.php">Sample PHP Page 1</a>
                         <a href="http://openweb.fwh.is/sample2.php">Sample PHP Page 2</a>
+                        <a href="http://openweb.fwh.is/sample3.php">Sample PHP Page 3</a>
                     </div>
                 </div>
             </div>
