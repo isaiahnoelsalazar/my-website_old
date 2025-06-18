@@ -373,6 +373,24 @@ namespace mywebsite_nugetpackage
             }
         }
 
+        public void pip(string[] args)
+        {
+            ProcessStartInfo run0 = new ProcessStartInfo();
+            run0.FileName = "python3_12\\Scripts\\pip.exe";
+            run0.Arguments = string.Join(" ", args);
+            run0.UseShellExecute = false;
+            run0.RedirectStandardOutput = true;
+            run0.CreateNoWindow = true;
+            using (Process process = Process.Start(run0))
+            {
+                using (StreamReader reader = process.StandardOutput)
+                {
+                    string result = reader.ReadToEnd();
+                    Console.WriteLine(result);
+                }
+            }
+        }
+
         public void run(string script)
         {
             File.Create("python3_12\\main.py").Close();
