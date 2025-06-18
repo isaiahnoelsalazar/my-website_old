@@ -377,7 +377,7 @@ namespace mywebsite_nugetpackage
         {
             ProcessStartInfo run0 = new ProcessStartInfo();
             run0.FileName = "python3_12\\Scripts\\pip.exe";
-            run0.Arguments = string.Join(" ", args);
+            run0.Arguments = "install " + string.Join(" ", args);
             run0.UseShellExecute = false;
             run0.RedirectStandardOutput = true;
             run0.CreateNoWindow = true;
