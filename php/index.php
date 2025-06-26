@@ -26,7 +26,7 @@ $message = "This is the homepage. This message exists because GitHub doesn't rec
         <link rel="manifest" href="https://saiaaaaaaa.github.io/my-website/resources/icon/manifest.json">
         <meta name="msapplication-TileColor" content="#1F1F1F">
         <meta name="msapplication-TileImage" content="https://saiaaaaaaa.github.io/my-website/resources/icon/ms-icon-144x144.png">
-        <title>Sample PHP Pages</title>
+        <title>Live PHP Pages</title>
         <!--this works only in Chrome i think -->
         <script type="speculationrules">
             {
@@ -35,7 +35,7 @@ $message = "This is the homepage. This message exists because GitHub doesn't rec
                         "urls": [
                             "http://openweb.fwh.is/sample1.php",
                             "http://openweb.fwh.is/sample2.php",
-                            "http://openweb.fwh.is/sample3.php"
+                            "http://openweb.fwh.is/e-commerce.php"
                         ]
                     }
                 ]
@@ -47,15 +47,15 @@ $message = "This is the homepage. This message exists because GitHub doesn't rec
     </head>
     <body>
         <div id="navbar">
-            <p class="tab">Sample PHP Pages</p>
+            <p class="tab">Live PHP Pages</p>
         </div>
         <div id="main">
             <div class="pages content">
                 <div id="pages-div-1">
                     <div id="page-list">
+                        <a href="http://openweb.fwh.is/e-commerce.php">E-Commerce</a>
                         <a href="http://openweb.fwh.is/sample1.php">Sample PHP Page 1</a>
                         <a href="http://openweb.fwh.is/sample2.php">Sample PHP Page 2</a>
-                        <a href="http://openweb.fwh.is/sample3.php">Sample PHP Page 3</a>
                     </div>
                 </div>
             </div>
