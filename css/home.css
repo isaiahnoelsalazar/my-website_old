@@ -11,6 +11,7 @@
     gap: 16px;
     justify-content: space-evenly;
     margin: 0 0 16px 0;
+    max-width: 1000px;
     padding: 16px 0;
     width: calc(100% - 32px);
 }
@@ -106,18 +107,18 @@
     display: flex;
     gap: 16px;
 }
+#home-div-1 > div > div > div > a {
+    border: solid var(--tertiary-color) 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 16px;
+    text-decoration: none;
+}
 #home-div-1 > div > div > div > a:first-child {
     background-color: var(--tertiary-color);
     border: solid var(--tertiary-color) 2px;
     border-radius: 8px;
     color: white;
-    cursor: pointer;
-    padding: 16px;
-    text-decoration: none;
-}
-#home-div-1 > div > div > div > a:last-child {
-    border: solid var(--tertiary-color) 2px;
-    border-radius: 8px;
     cursor: pointer;
     padding: 16px;
     text-decoration: none;
