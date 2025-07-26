@@ -98,7 +98,8 @@
 }
 #home-div-1 > div > img {
     border-radius: 50%;
-    width: 360px;
+    max-width: 360px;
+    width: 100%;
 }
 #home-div-1 > div > div > h1 {
     margin: 0;
@@ -140,7 +141,7 @@
         text-align: center;
     }
 }
-@media (max-width: 720px) {
+@media (max-width: 752px) {
     #home-div-1 {
         flex-direction: column-reverse;
     }
